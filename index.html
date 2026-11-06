@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="为软件工程师设计的《系统之美》互动研习室：可玩的系统实验、33 道章节情境自测、软件工程类比和因果回路沙盒。">
+  <meta name="theme-color" content="#f2efe6">
+  <title>系统之美 · 软件工程师互动研习室</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2313231d'/%3E%3Cellipse cx='32' cy='32' rx='19' ry='11' fill='none' stroke='%2374dfbd' stroke-width='3'/%3E%3Cellipse cx='32' cy='32' rx='11' ry='19' fill='none' stroke='%23f0c274' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23f6f0e1'/%3E%3C/svg%3E">
+  <script>try{var _s=JSON.parse(localStorage.getItem("system-beauty-v1")||"{}");if(_s.theme==="dark")document.documentElement.dataset.theme="dark";}catch(e){}</script>
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M8 7.2 16 8M7.2 8l3.8 7.8M16.8 9l-3.7 7"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9v6h3l4 3V6L7 9H4Z"/><path d="M15 8.5a5 5 0 0 1 0 7M17.8 5.8a9 9 0 0 1 0 12.4"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9v6h3l4 3V6L7 9H4Z"/><path d="m15.5 9.5 5 5M20.5 9.5l-5 5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15.5A8.2 8.2 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1.5 7M4 4v6h6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M9.5 14.5 14.5 9M8 16l-1.7 1.7a3.5 3.5 0 0 1-5-5L5 9M16 8l1.7-1.7a3.5 3.5 0 0 1 5 5L19 15"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6.5 7l1 13h9l1-13M10 11v5M14 11v5"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4ZM13.5 6.5l4 4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2c.5 5.5 4.5 9.5 10 10-5.5.5-9.5 4.5-10 10-.5-5.5-4.5-9.5-10-10 5.5-.5 9.5-4.5 10-10Z"/></symbol>
+    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2 12h4l2-6 4 12 2.5-6H22"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m8 5 7 7-7 7"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.1"/></symbol>
+  </svg>
+
+  <div class="site">
+    <aside class="sidebar" id="sidebar" aria-label="章节目录">
+      <div class="sidebar-top">
+        <button class="brand" data-go="ch00" aria-label="回到启程">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48">
+              <ellipse cx="24" cy="24" rx="18" ry="9" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(-24 24 24)"/>
+              <ellipse cx="24" cy="24" rx="9" ry="18" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(-24 24 24)"/>
+              <circle cx="24" cy="24" r="3" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <strong>系统之美</strong>
+            <small>THINKING IN SYSTEMS</small>
+          </span>
+        </button>
+        <button class="icon-btn sidebar-close" id="sidebarClose" aria-label="关闭目录">
+          <svg class="icon"><use href="#i-close"></use></svg>
+        </button>
+      </div>
+
+      <div class="sidebar-scroll">
+        <nav class="chapter-nav" aria-label="学习模块">
+          <div class="nav-group">
+            <span class="nav-label">序章</span>
+            <button class="nav-item" data-go="ch00">
+              <span class="nav-num">00</span><span class="nav-name">启程</span><span class="nav-dot"></span>
+            </button>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">I · 看见结构</span>
+            <button class="nav-item" data-go="ch01"><span class="nav-num">01</span><span class="nav-name">系统解剖</span><span class="nav-dot"></span></button>
+            <button class="nav-item" data-go="ch02"><span class="nav-num">02</span><span class="nav-name">存量与流量</span><span class="nav-dot"></span></button>
+            <button class="nav-item" data-go="ch03"><span class="nav-num">03</span><span class="nav-name">反馈回路</span><span class="nav-dot"></span></button>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">II · 理解行为</span>
+            <button class="nav-item" data-go="ch04"><span class="nav-num">04</span><span class="nav-name">系统动物园</span><span class="nav-dot"></span></button>
+            <button class="nav-item" data-go="ch05"><span class="nav-num">05</span><span class="nav-name">系统之美</span><span class="nav-dot"></span></button>
+            <button class="nav-item" data-go="ch06"><span class="nav-num">06</span><span class="nav-name">系统之奇</span><span class="nav-dot"></span></button>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">III · 识别陷阱</span>
+            <button class="nav-item" data-go="ch07"><span class="nav-num">07</span><span class="nav-name">系统陷阱</span><span class="nav-dot"></span></button>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">IV · 改变系统</span>
+            <button class="nav-item" data-go="ch08"><span class="nav-num">08</span><span class="nav-name">十二个杠杆点</span><span class="nav-dot"></span></button>
+            <button class="nav-item" data-go="ch09"><span class="nav-num">09</span><span class="nav-name">与系统共舞</span><span class="nav-dot"></span></button>
+            <button class="nav-item" data-go="ch10"><span class="nav-num">10</span><span class="nav-name">系统沙盒</span><span class="nav-dot"></span></button>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">尾声</span>
+            <button class="nav-item" data-go="ch11"><span class="nav-num">11</span><span class="nav-name">检验与速查</span><span class="nav-dot"></span></button>
+          </div>
+        </nav>
+      </div>
+
+      <div class="sidebar-foot">
+        <div class="side-progress">
+          <div class="progress-orbit" id="progressOrbit" style="--p:0">
+            <span id="sidePct">0</span><small>%</small>
+          </div>
+          <div class="side-progress-copy">
+            <span>学习进度</span>
+            <strong id="sideDone">0 / 11 模块</strong>
+          </div>
+        </div>
+        <p class="side-quote">“结构决定行为，<br>行为又反过来塑造结构。”</p>
+      </div>
+    </aside>
+
+    <div class="scrim" id="scrim" hidden></div>
+
+    <div class="shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn menu-btn" id="menuBtn" aria-label="打开目录" aria-expanded="false">
+            <svg class="icon"><use href="#i-menu"></use></svg>
+          </button>
+          <div class="crumb">
+            <span class="crumb-mono">SYSTEMS / SWE NOTES</span>
+            <span class="crumb-current" id="currentCrumb">启程</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="map-btn" id="mapBtn">
+            <svg class="icon"><use href="#i-map"></use></svg>
+            <span>知识地图</span>
+          </button>
+          <button class="icon-btn" id="soundBtn" aria-label="打开音效" title="音效">
+            <svg class="icon"><use href="#i-mute" id="soundIconUse"></use></svg>
+          </button>
+          <button class="icon-btn" id="themeBtn" aria-label="切换明暗主题" title="切换主题">
+            <svg class="icon"><use href="#i-moon" id="themeIconUse"></use></svg>
+          </button>
+        </div>
+        <div class="read-progress" aria-hidden="true"><span id="readBar"></span></div>
+      </header>
+
+      <main id="main" tabindex="-1">
+
+        <!-- ============================================================ -->
+        <!-- 00 · 启程                                                      -->
+        <!-- ============================================================ -->
+        <section class="chapter chapter--home is-active" id="ch00" data-title="启程" data-index="00">
+          <div class="hero reveal">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="hero-copy">
+              <div class="eyebrow eyebrow--light"><span class="pulse-dot"></span> DONELLA H. MEADOWS · 软件工程师互动研习</div>
+              <h1 class="hero-title">
+                <span>看见系统，</span>
+                <span class="hero-title-accent">才能改变系统。</span>
+              </h1>
+              <p class="hero-lede">从一只浴缸、一个恒温器，到你每天维护的代码库：<br>把世界的复杂，看成一组可以理解、可以参与的结构。</p>
+              <div class="hero-actions">
+                <button class="btn btn-hero" data-go="ch01">
+                  开始第一站
+                  <svg class="icon"><use href="#i-arrow"></use></svg>
+                </button>
+                <button class="btn btn-hero-ghost" data-go="ch02">先玩浴缸实验</button>
+              </div>
+              <div class="hero-meta">
+                <div><strong>11</strong><span>个学习模块</span></div>
+                <div><strong>33</strong><span>道章节自测</span></div>
+                <div><strong>12+</strong><span>个可玩实验</span></div>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <div class="hv-grid"></div>
+              <div class="hv-topline"><span>LIVE SYSTEM MAP</span><span>01 / 12</span></div>
+              <svg class="hv-svg" viewBox="0 0 600 470">
+                <defs>
+                  <linearGradient id="hvLine" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#74dfbd" stop-opacity=".15"/>
+                    <stop offset=".5" stop-color="#74dfbd" stop-opacity=".9"/>
+                    <stop offset="1" stop-color="#f0c274" stop-opacity=".2"/>
+                  </linearGradient>
+                  <filter id="hvBlur"><feGaussianBlur stdDeviation="9"/></filter>
+                  <marker id="hvArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M0 0 10 5 0 10Z" fill="#74dfbd"/>
+                  </marker>
+                  <marker id="hvArrowGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M0 0 10 5 0 10Z" fill="#f0c274"/>
+                  </marker>
+                  <path id="hvOrbitPath" d="M120 330 C 90 180, 250 65, 390 95 S 560 240, 470 360 S 240 430, 120 330Z"/>
+                </defs>
+                <circle cx="330" cy="240" r="180" fill="#74dfbd" opacity=".05" filter="url(#hvBlur)"/>
+                <path d="M120 330 C 90 180, 250 65, 390 95 S 560 240, 470 360 S 240 430, 120 330Z" fill="none" stroke="url(#hvLine)" stroke-width="1.2" stroke-dasharray="3 9" class="hv-orbit"/>
+                <path d="M256 274 C 225 238, 234 201, 276 188" fill="none" stroke="#f0c274" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="4 7" marker-end="url(#hvArrowGold)"/>
+                <text x="308" y="54" fill="#74dfbd" opacity=".6" font-size="9" letter-spacing="2">FEEDBACK</text>
+                <text x="426" y="278" fill="#f0c274" opacity=".7" font-size="9" letter-spacing="2">DELAY</text>
+                <text x="95" y="388" fill="#f6f0e1" opacity=".4" font-size="9" letter-spacing="2">STOCK</text>
+                <circle r="3.5" fill="#74dfbd">
+                  <animateMotion dur="13s" repeatCount="indefinite" rotate="auto">
+                    <mpath href="#hvOrbitPath"/>
+                  </animateMotion>
+                </circle>
+                <circle r="2.5" fill="#f0c274">
+                  <animateMotion dur="13s" begin="-6s" repeatCount="indefinite" rotate="auto">
+                    <mpath href="#hvOrbitPath"/>
+                  </animateMotion>
+                </circle>
+              </svg>
+
+              <div class="hv-node hv-node--stock">
+                <span class="hv-node-label">存量 STOCK</span>
+                <strong>42.0</strong>
+                <small>系统的记忆</small>
+              </div>
+              <div class="hv-node hv-node--in">
+                <span class="hv-pulse"></span>
+                进水 <b>+5.0</b>
+              </div>
+              <div class="hv-node hv-node--out">
+                出水 <b>−2.0</b><span class="hv-pulse hv-pulse--gold"></span>
+              </div>
+              <div class="hv-node hv-node--goal">
+                <span class="hv-node-label">目标 GOAL</span>
+                <strong>50.0</strong>
+              </div>
+              <div class="hv-node hv-node--delay">
+                <span class="hv-node-label">延迟 DELAY</span>
+                <strong>2.4s</strong>
+              </div>
+              <div class="hv-loop-badge">R</div>
+              <div class="hv-footline">
+                <span><i class="status-dot"></i> 系统正在响应</span>
+                <span>存量 · 流量 · 反馈 · 延迟</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="home-section reveal">
+            <div class="section-head">
+              <div>
+                <span class="kicker">WHY SYSTEMS THINKING</span>
+                <h2>不是更努力，<br>而是看见<em>结构</em>。</h2>
+              </div>
+              <p class="section-intro">对软件工程师尤其如此：故障、延期、技术债、协作摩擦，都不是孤立事件。系统思考把镜头拉远，让你看见代码库与团队背后的模式、结构与心智模型。</p>
+            </div>
+            <div class="reason-grid">
+              <article class="reason-card">
+                <div class="reason-art">
+                  <svg viewBox="0 0 220 110" aria-hidden="true">
+                    <path d="M8 79h204" stroke="currentColor" opacity=".12"/>
+                    <circle cx="30" cy="75" r="4" fill="#d95d43"/><circle cx="74" cy="66" r="4" fill="#d95d43" opacity=".6"/>
+                    <path d="M28 48c35 26 58-20 88 4s46 8 75-3" fill="none" stroke="#1d6f61" stroke-width="1.6"/>
+                    <circle cx="122" cy="52" r="5" fill="#1d6f61"/>
+                    <path d="M127 52c28-18 46-31 72-35" fill="none" stroke="#b27b2a" stroke-width="1.2" stroke-dasharray="3 4"/>
+                    <circle cx="199" cy="17" r="5" fill="none" stroke="#b27b2a" stroke-width="1.4"/>
+                  </svg>
+                </div>
+                <span class="reason-num">01</span>
+                <h3>从事件，到结构</h3>
+                <p>同一个问题反复出现，往往不是因为谁不努力，而是因为产生它的结构还在。</p>
+                <span class="reason-link">事件 → 模式 → 结构 <svg class="icon"><use href="#i-arrow"></use></svg></span>
+              </article>
+              <article class="reason-card">
+                <div class="reason-art">
+                  <svg viewBox="0 0 220 110" aria-hidden="true">
+                    <circle cx="55" cy="56" r="22" fill="none" stroke="currentColor" opacity=".2"/>
+                    <circle cx="165" cy="56" r="22" fill="none" stroke="currentColor" opacity=".2"/>
+                    <path d="M76 46h68M76 66h68" stroke="#d95d43" stroke-width="1.5" stroke-dasharray="4 4"/>
+                    <path d="m137 40 9 6-9 6M137 60l9 6-9 6" fill="none" stroke="#d95d43" stroke-width="1.5"/>
+                    <text x="44" y="60" font-size="9" fill="currentColor" opacity=".55">局部</text>
+                    <text x="153" y="60" font-size="9" fill="currentColor" opacity=".55">局部</text>
+                  </svg>
+                </div>
+                <span class="reason-num">02</span>
+                <h3>跳出局部最优</h3>
+                <p>每个团队都做了“合理”的选择，合在一起却互相抵消。有限理性，需要更大的画面。</p>
+                <span class="reason-link">局部理性 → 整体荒诞 <svg class="icon"><use href="#i-arrow"></use></svg></span>
+              </article>
+              <article class="reason-card">
+                <div class="reason-art">
+                  <svg viewBox="0 0 220 110" aria-hidden="true">
+                    <path d="M38 84 182 30" stroke="currentColor" stroke-width="2"/>
+                    <path d="m168 27 18-4-6 16" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M98 84 182 30" stroke="#1d6f61" stroke-width="1.4"/>
+                    <circle cx="98" cy="84" r="7" fill="#1d6f61" opacity=".14"/>
+                    <circle cx="98" cy="84" r="3.5" fill="#1d6f61"/>
+                    <text x="42" y="100" font-size="9" fill="currentColor" opacity=".55">轻轻一推</text>
+                    <text x="139" y="97" font-size="9" fill="#1d6f61">系统转向</text>
+                  </svg>
+                </div>
+                <span class="reason-num">03</span>
+                <h3>找到四两拨千斤的点</h3>
+                <p>改变数字通常最省事，也最无力。目标、信息流与规则，往往才是系统的转向器。</p>
+                <span class="reason-link">杠杆点 → 结构性改变 <svg class="icon"><use href="#i-arrow"></use></svg></span>
+              </article>
+            </div>
+          </div>
+
+          <div class="home-section reveal">
+            <div class="section-head section-head--compact">
+              <div>
+                <span class="kicker">THE ROUTE</span>
+                <h2>一条从“看见”到“行动”的路线。</h2>
+              </div>
+              <p class="section-intro">四幕，十一个模块。每一站都有一句话的核心、一个可玩的实验，以及一块属于软件工程师的翻译。</p>
+            </div>
+            <div class="act-grid">
+              <article class="act-card act-card--teal">
+                <div class="act-top"><span>ACT I</span><span>01 — 03</span></div>
+                <h3>看见结构</h3>
+                <p>拆开系统的三要素，认识存量、流量和反馈回路。先学会不再只盯着事件。</p>
+                <div class="act-chapters">
+                  <button data-go="ch01"><b>01</b> 系统解剖</button>
+                  <button data-go="ch02"><b>02</b> 存量与流量</button>
+                  <button data-go="ch03"><b>03</b> 反馈回路</button>
+                </div>
+                <div class="act-motif" aria-hidden="true">◒</div>
+              </article>
+              <article class="act-card act-card--gold">
+                <div class="act-top"><span>ACT II</span><span>04 — 06</span></div>
+                <h3>理解行为</h3>
+                <p>读出系统的行为签名：增长、振荡、崩溃；再理解它为何坚韧，又为何总让人意外。</p>
+                <div class="act-chapters">
+                  <button data-go="ch04"><b>04</b> 系统动物园</button>
+                  <button data-go="ch05"><b>05</b> 系统之美</button>
+                  <button data-go="ch06"><b>06</b> 系统之奇</button>
+                </div>
+                <div class="act-motif" aria-hidden="true">∿</div>
+              </article>
+              <article class="act-card act-card--coral">
+                <div class="act-top"><span>ACT III</span><span>07</span></div>
+                <h3>识别陷阱</h3>
+                <p>八个反复出现的系统陷阱：公地悲剧、目标侵蚀、转嫁负担……以及它们的结构式解法。</p>
+                <div class="act-chapters">
+                  <button data-go="ch07"><b>07</b> 系统诊所</button>
+                  <button data-go="ch07" data-open-trap="commons"><b>＋</b> 公地悲剧</button>
+                </div>
+                <div class="act-motif" aria-hidden="true">↺</div>
+              </article>
+              <article class="act-card act-card--blue">
+                <div class="act-top"><span>ACT IV</span><span>08 — 11</span></div>
+                <h3>改变系统</h3>
+                <p>从十二个杠杆点，到与系统共舞的生存法则；最后，亲手画一张属于你的系统结构图。</p>
+                <div class="act-chapters">
+                  <button data-go="ch08"><b>08</b> 杠杆点</button>
+                  <button data-go="ch09"><b>09</b> 与系统共舞</button>
+                  <button data-go="ch10"><b>10</b> 沙盒</button>
+                  <button data-go="ch11"><b>11</b> 检验</button>
+                </div>
+                <div class="act-motif" aria-hidden="true">✦</div>
+              </article>
+            </div>
+          </div>
+
+          <div class="home-section reveal">
+            <div class="howto-card">
+              <div class="howto-copy">
+                <span class="kicker">HOW TO USE</span>
+                <h2>不要急着记住。<br>先动手，再命名。</h2>
+                <p>你不需要数学基础。拖动滑杆、制造扰动、诊断病例，让直觉先发生；每章末尾再用 3 道软件工程情境题，确认自己真的能把结构带回现场。</p>
+                <div class="howto-pills">
+                  <span><i>01</i> 读一句话</span>
+                  <span><i>02</i> 玩一个实验</span>
+                  <span><i>03</i> 连接工程现场</span>
+                  <span><i>04</i> 做 3 题自测</span>
+                  <span><i>05</i> 点亮本章</span>
+                </div>
+              </div>
+              <div class="howto-steps">
+                <div><span>01</span><p><b>先建立手感</b><br>浴缸、恒温器、资源曲线，都是系统行为的“乐器”。</p></div>
+                <div><span>02</span><p><b>再形成语言</b><br>用存量、流量、回路、延迟来描述你看见的东西。</p></div>
+                <div><span>03</span><p><b>最后带回现场</b><br>把回路画出来，找信息断点和目标错位，再选择一个杠杆点。</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="home-cta reveal">
+            <div>
+              <span class="kicker">READY WHEN YOU ARE</span>
+              <h2>第一站：系统不是一堆零件。</h2>
+            </div>
+            <button class="btn btn-primary" data-go="ch01">进入 01 · 系统解剖 <svg class="icon"><use href="#i-arrow"></use></svg></button>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 01 · 系统解剖                                                  -->
+        <!-- ============================================================ -->
+        <section class="chapter" id="ch01" data-title="系统解剖" data-index="01" data-source="原书第 1 章 · 系统基础">
+          <div class="chapter-head reveal">
+            <div class="chapter-kicker"><span class="chapter-num">01</span><span>系统的结构</span><span class="chapter-source">原书第 1 章</span></div>
+            <h1>整体，<em>大于</em><br>部分之和。</h1>
+            <p class="lede">系统不是零件的集合。它由<strong>要素</strong>、<strong>连接</strong>和<strong>目标</strong>组成；真正决定行为的，常常是你最看不见的那一层。</p>
+            <div class="head-tags">
+              <span>要素 Element</span><span>连接 Connection</span><span>目标 Purpose</span><span>边界 Boundary</span>
+            </div>
+          </div>
+
+          <div class="concept-note reveal">
+            <div class="note-mark">“</div>
+            <p>系统是一组相互连接的要素，它们以某种方式组织起来，实现某个目标。整体之所以大于部分之和，是因为<strong>连接</strong>产生了部分单独不具备的功能。</p>
+            <span>— 用一句话定义系统</span>
+          </div>
+
+          <div class="trio-grid reveal">
+            <button class="flip-card" data-flip aria-pressed="false">
+              <span class="flip-inner">
+                <span class="flip-face flip-front">
+                  <span class="flip-index">A / 要素</span>
+                  <span class="flip-icon">◈</span>
+                  <strong>要素</strong>
+                  <small>系统里看得见的东西</small>
+                  <span class="flip-hint">点击翻面 · 换掉它会怎样？</span>
+                </span>
+                <span class="flip-face flip-back">
+                  <span class="flip-index">A / 要素</span>
+                  <strong>最容易被替换</strong>
+                  <p>换掉一辆共享单车、一位工程师、一个微服务，系统通常还是原来那个系统。要素会影响体验，但很少决定系统的行为模式。</p>
+                  <span class="flip-hint">返回正面</span>
+                </span>
+              </span>
+            </button>
+            <button class="flip-card" data-flip aria-pressed="false">
+              <span class="flip-inner">
+                <span class="flip-face flip-front">
+                  <span class="flip-index">B / 连接</span>
+                  <span class="flip-icon">⇄</span>
+                  <strong>连接</strong>
+                  <small>要素之间如何相互影响</small>
+                  <span class="flip-hint">点击翻面 · 换掉它会怎样？</span>
+                </span>
+                <span class="flip-face flip-back">
+                  <span class="flip-index">B / 连接</span>
+                  <strong>比要素更难改变</strong>
+                  <p>流程、信息流、接口、激励与反馈，都是连接。你可以换一拨人，但如果协作方式不变，系统往往还是产出同样的结果。</p>
+                  <span class="flip-hint">返回正面</span>
+                </span>
+              </span>
+            </button>
+            <button class="flip-card" data-flip aria-pressed="false">
+              <span class="flip-inner">
+                <span class="flip-face flip-front">
+                  <span class="flip-index">C / 目标</span>
+                  <span class="flip-icon">◎</span>
+                  <strong>目标</strong>
+                  <small>系统实际在追求什么</small>
+                  <span class="flip-hint">点击翻面 · 换掉它会怎样？</span>
+                </span>
+                <span class="flip-face flip-back">
+                  <span class="flip-index">C / 目标</span>
+                  <strong>最隐蔽，也最关键</strong>
+                  <p>目标不是墙上的口号，而是系统实际奖励和重复的行为。目标一变，要素和连接的意义都会跟着改变。</p>
+                  <span class="flip-hint">返回正面</span>
+                </span>
+              </span>
+            </button>
+          </div>
+
+          <div class="lab reveal" id="assemblyLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 01 · 拼装系统</span>
+                <h2>拆掉一层，看看它还成不成系统。</h2>
+              </div>
+              <span class="lab-badge">可交互</span>
+            </div>
+            <div class="assembly-grid">
+              <div class="assembly-stage" id="assemblyStage">
+                <svg class="assembly-lines" viewBox="0 0 640 400" aria-hidden="true">
+                  <defs>
+                    <marker id="asmArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                      <path d="M0 0 10 5 0 10Z" fill="currentColor"/>
+                    </marker>
+                  </defs>
+                  <g class="asm-connections">
+                    <path d="M320 200 173 114" marker-end="url(#asmArrow)"/>
+                    <path d="M320 200 476 103" marker-end="url(#asmArrow)"/>
+                    <path d="M320 200 504 286" marker-end="url(#asmArrow)"/>
+                    <path d="M320 200 156 292" marker-end="url(#asmArrow)"/>
+                    <path d="M173 114 476 103" stroke-dasharray="3 6" opacity=".35" marker-end="url(#asmArrow)"/>
+                    <path d="M156 292 504 286" stroke-dasharray="3 6" opacity=".35" marker-end="url(#asmArrow)"/>
+                  </g>
+                </svg>
+                <div class="asm-goal" data-asm-layer="goal">
+                  <span>目标 PURPOSE</span>
+                  <strong>让城市短途<br>出行更轻</strong>
+                </div>
+                <div class="asm-element asm-e1" data-asm-layer="elements"><span>单车</span><small>4000 辆</small></div>
+                <div class="asm-element asm-e2" data-asm-layer="elements"><span>用户</span><small>12.8 万</small></div>
+                <div class="asm-element asm-e3" data-asm-layer="elements"><span>运维</span><small>38 人</small></div>
+                <div class="asm-element asm-e4" data-asm-layer="elements"><span>停车点</span><small>620 个</small></div>
+                <div class="asm-conn asm-c1" data-asm-layer="connections">扫码解锁</div>
+                <div class="asm-conn asm-c2" data-asm-layer="connections">调度补车</div>
+                <div class="asm-conn asm-c3" data-asm-layer="connections">计费与信用</div>
+                <div class="asm-conn asm-c4" data-asm-layer="connections">报障闭环</div>
+                <div class="asm-status" id="asmStatus">
+                  <span class="status-dot"></span>
+                  <span><strong>系统成立。</strong> 要素通过连接协作，朝一个目标持续运行。</span>
+                </div>
+              </div>
+              <div class="assembly-panel">
+                <p class="microcopy">系统三要素，不只是三个名词。试着逐层移除，观察“系统”什么时候消失。</p>
+                <div class="layer-switches">
+                  <label class="layer-switch">
+                    <span><b>A</b> 要素</span>
+                    <input type="checkbox" id="asmElements" checked>
+                    <i class="switch-track"></i>
+                  </label>
+                  <label class="layer-switch">
+                    <span><b>B</b> 连接</span>
+                    <input type="checkbox" id="asmConnections" checked>
+                    <i class="switch-track"></i>
+                  </label>
+                  <label class="layer-switch">
+                    <span><b>C</b> 目标</span>
+                    <input type="checkbox" id="asmGoal" checked>
+                    <i class="switch-track"></i>
+                  </label>
+                </div>
+                <div class="assembly-verdict" id="asmVerdict">
+                  <span class="verdict-label">当前判定</span>
+                  <strong>一个完整的系统</strong>
+                  <p>连接把要素组织起来，目标让它们的行为有了方向。</p>
+                </div>
+                <button class="btn btn-small btn-outline" id="asmRandom">随机拆掉一层</button>
+                <p class="aside-note">软件团队也是：换人不改流程，行为不变；改流程不改目标，团队会优化错误的东西。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lab reveal" id="boundaryLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 02 · 边界</span>
+                <h2>系统没有天然边界，边界是你画的。</h2>
+              </div>
+              <span class="lab-badge">可交互</span>
+            </div>
+            <div class="boundary-grid">
+              <div class="boundary-stage" id="boundaryStage" data-scope="team">
+                <div class="boundary-ring ring-1"></div>
+                <div class="boundary-ring ring-2"></div>
+                <div class="boundary-core">
+                  <span class="mono">YOUR SYSTEM</span>
+                  <strong>推荐服务</strong>
+                  <small>目标：稳定 + 快</small>
+                </div>
+                <div class="boundary-chip b1">研发团队</div>
+                <div class="boundary-chip b2">产品需求</div>
+                <div class="boundary-chip b3">数据库</div>
+                <div class="boundary-chip b4 boundary-out">运维值班</div>
+                <div class="boundary-chip b5 boundary-out">用户信任</div>
+                <div class="boundary-chip b6 boundary-out">云厂商成本</div>
+                <div class="boundary-chip b7 boundary-out">团队士气</div>
+                <div class="boundary-label" id="boundaryLabel">当前边界：团队内部</div>
+              </div>
+              <div class="boundary-panel">
+                <div class="segmented segmented--small" id="boundaryToggle" role="tablist" aria-label="选择系统边界">
+                  <button role="tab" data-scope="narrow" aria-selected="false">只看代码</button>
+                  <button class="is-active" role="tab" data-scope="team" aria-selected="true">团队内部</button>
+                  <button role="tab" data-scope="wide" aria-selected="false">服务生态</button>
+                </div>
+                <div class="boundary-copy" id="boundaryCopy">
+                  <h3>把边界画在团队内部</h3>
+                  <p>你能看见研发、需求、数据库之间的互动。但值班压力、用户信任和云成本被留在外面，它们的反馈仍会穿过边界影响你。</p>
+                  <p class="aside-note">边界不是为了把世界切开，而是为了对“哪些反馈与我有关”做出选择。</p>
+                </div>
+                <div class="boundary-tip"><svg class="icon"><use href="#i-info"></use></svg><span>扩大边界会带来更多变量，也带来更多责任。关键是：不要假装边界外的东西不存在。</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="engineer-note reveal">
+            <div class="engineer-icon"><svg class="icon"><use href="#i-grid"></use></svg></div>
+            <div>
+              <span class="kicker">FOR SOFTWARE ENGINEERS</span>
+              <h3>把系统三要素翻译进代码库</h3>
+              <div class="engineer-grid">
+                <div><b>要素</b><span>服务、数据库、队列、工程师、用户</span></div>
+                <div><b>连接</b><span>API、事件、依赖、值班流程、协作惯例</span></div>
+                <div><b>目标</b><span>真正的优化目标：可用性、交付速度、业务结果</span></div>
+              </div>
+              <p>下次看到“团队不行”，先问：是要素问题，连接问题，还是系统正在优化一个错误的目标？</p>
+            </div>
+          </div>
+
+          <div class="takeaways reveal">
+            <div class="takeaways-head"><span class="kicker">TAKEAWAYS</span><h2>本章速记</h2></div>
+            <ul>
+              <li><b>系统 = 要素 + 连接 + 目标。</b><span>整体大于部分之和，来自连接产生的涌现。</span></li>
+              <li><b>改变要素最容易，改变目标最深刻。</b><span>换人通常不改变结构；改目标会改变一切行为。</span></li>
+              <li><b>目标要看行为，不听口号。</b><span>系统实际奖励什么、重复什么，它就在追求什么。</span></li>
+              <li><b>边界是一种选择。</b><span>边界外的反馈不会消失，只会以意外的方式回来。</span></li>
+            </ul>
+          </div>
+
+          <section class="chapter-quiz reveal" data-quiz="ch01" aria-label="第 01 章自测"></section>
+
+          <div class="chapter-end reveal">
+            <button class="complete-btn" data-complete="ch01"><span class="complete-icon"><svg class="icon"><use href="#i-check"></use></svg></span><span class="complete-copy"><b>标记本章完成</b><small>点亮你的学习轨迹</small></span></button>
+            <button class="next-card" data-go="ch02">
+              <span class="next-label">下一章 <small>02</small></span>
+              <strong>存量与流量</strong>
+              <span class="next-desc">为什么系统总是慢半拍？</span>
+              <svg class="icon"><use href="#i-arrow"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 02 · 存量与流量                                                -->
+        <!-- ============================================================ -->
+        <section class="chapter" id="ch02" data-title="存量与流量" data-index="02" data-source="原书第 1—2 章 · 存量、流量与延迟">
+          <div class="chapter-head reveal">
+            <div class="chapter-kicker"><span class="chapter-num">02</span><span>系统的记忆</span><span class="chapter-source">原书第 1—2 章</span></div>
+            <h1>系统总是<br><em>慢半拍</em>。</h1>
+            <p class="lede">存量在积累，流量在改变它。你可以瞬间拧开水龙头，却不能瞬间改变水位。这正是系统惯性、缓冲和延迟的来源。</p>
+            <div class="head-tags"><span>存量 Stock</span><span>流量 Flow</span><span>缓冲 Buffer</span><span>延迟 Delay</span></div>
+          </div>
+
+          <div class="two-col-note reveal">
+            <article class="mini-concept">
+              <span class="mini-tag">STOCK</span>
+              <h3>存量：系统的记忆</h3>
+              <p>任何可以积累或减少的量：浴缸里的水、银行的余额、积压的工单、未偿还的技术债。</p>
+              <div class="stock-glyph"><span></span><i>积累</i></div>
+            </article>
+            <article class="mini-concept">
+              <span class="mini-tag mini-tag--gold">FLOW</span>
+              <h3>流量：改变存量的速度</h3>
+              <p>流入与流出。它们不是“多少”，而是“每单位时间多少”：每分钟、每天、每个迭代。</p>
+              <div class="flow-glyph"><i>→</i><span></span><i>→</i></div>
+            </article>
+            <div class="formula-card">
+              <span class="formula-label">THE BATHTUB THEOREM</span>
+              <p class="formula">存量<sub>t+1</sub> = 存量<sub>t</sub> + (流入 − 流出) × Δt</p>
+              <p>只要净流量不为零，存量就会继续变化。水位不会因为你“希望它停”而停下来。</p>
+            </div>
+          </div>
+
+          <div class="lab reveal" id="stockLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 03 · 浴缸</span>
+                <h2>亲手把水位停在 50 L。</h2>
+              </div>
+              <span class="lab-badge">实时模拟</span>
+            </div>
+            <div class="stock-grid">
+              <div class="stock-visual">
+                <div class="stock-topline">
+                  <span class="mono">STOCK / 水位</span>
+                  <div class="lab-actions-inline">
+                    <button class="mini-btn" id="stockPlay" aria-label="开始模拟"><svg class="icon"><use href="#i-play"></use></svg><span>开始</span></button>
+                    <button class="mini-btn" id="stockReset" aria-label="重置模拟"><svg class="icon"><use href="#i-reset"></use></svg><span>重置</span></button>
+                  </div>
+                </div>
+                <div class="tub-stage">
+                  <div class="tub-readout"><strong id="stockLevel">28.0</strong><span>L</span><small id="stockNet">净流量 +3.0 L/s</small></div>
+                  <div class="tub-gauge" aria-hidden="true"><span>100</span><span>75</span><span>50</span><span>25</span><span>0</span></div>
+                  <div class="tub" id="tub">
+                    <div class="water" id="waterFill" style="--level:28%"></div>
+                    <div class="water-wave"></div>
+                  </div>
+                  <div class="tap tap--in" id="inTap"><i></i><span>进水</span></div>
+                  <div class="tap tap--out" id="outTap"><i></i><span>出水</span></div>
+                  <div class="challenge-badge" id="stockChallenge"><span class="challenge-dot"></span><span>挑战：让水位稳定在 50 L，保持 1.5 秒</span></div>
+                </div>
+                <div class="flow-controls">
+                  <label class="control">
+                    <span class="control-label"><b>进水</b><output id="inflowOut">5.0 L/s</output></span>
+                    <input type="range" id="inflow" min="0" max="10" value="5" step="0.5">
+                  </label>
+                  <label class="control">
+                    <span class="control-label"><b>出水</b><output id="outflowOut">2.0 L/s</output></span>
+                    <input type="range" id="outflow" min="0" max="10" value="2" step="0.5">
+                  </label>
+                </div>
+                <div class="preset-row">
+                  <span>快速预设</span>
+                  <button data-preset="fill">进水 &gt; 出水</button>
+                  <button data-preset="balance">进水 = 出水</button>
+                  <button data-preset="drain">出水 &gt; 进水</button>
+                </div>
+              </div>
+              <div class="stock-chart-side">
+                <div class="chart-head">
+                  <div><span class="mono">水位随时间</span><strong>实时曲线</strong></div>
+                  <div class="chart-legend"><span><i class="legend-line legend-line--accent"></i>水位</span><span><i class="legend-line legend-line--dashed"></i>目标 50 L</span></div>
+                </div>
+                <div class="chart-frame"><canvas id="stockChart" class="chart-canvas" height="280"></canvas></div>
+                <div class="stat-strip">
+                  <div><span>流入速率</span><strong id="statIn">5.0</strong><small>L/s</small></div>
+                  <div><span>流出速率</span><strong id="statOut">2.0</strong><small>L/s</small></div>
+                  <div><span>净流量</span><strong id="statNet">+3.0</strong><small>L/s</small></div>
+                </div>
+                <div class="lab-tip" id="stockHint"><svg class="icon"><use href="#i-info"></use></svg><span>先让进水大于出水，等水位接近 50 L 时，再把两者调成相等。</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-sub reveal">
+            <span class="kicker">WHY IT MATTERS</span>
+            <h2>存量不是“存储”，它是<em>动量</em>。</h2>
+            <p>存量把过去的选择带到今天，也把今天的动作推向未来。它让系统拥有缓冲、延迟和惯性。</p>
+          </div>
+
+          <div class="feature-grid feature-grid--three reveal">
+            <article class="feature-card">
+              <span class="feature-index">01</span>
+              <h3>缓冲</h3>
+              <p>库存、现金储备、备用容量，让系统在冲击下仍能运转。缓冲越大，系统越稳，但也越贵、越慢。</p>
+              <span class="feature-en">BUFFER</span>
+            </article>
+            <article class="feature-card">
+              <span class="feature-index">02</span>
+              <h3>延迟</h3>
+              <p>存量无法瞬变。今天的投入，要经过一段时间才变成结果；今天的伤害，也要过一阵才显现。</p>
+              <span class="feature-en">DELAY</span>
+            </article>
+            <article class="feature-card">
+              <span class="feature-index">03</span>
+              <h3>惯性</h3>
+              <p>一旦系统朝某个方向积累，停下来需要反向的净流量。组织、债务、声誉，都是如此。</p>
+              <span class="feature-en">MOMENTUM</span>
+            </article>
+          </div>
+
+          <div class="engineer-note reveal">
+            <div class="engineer-icon"><svg class="icon"><use href="#i-pulse"></use></svg></div>
+            <div>
+              <span class="kicker">FOR SOFTWARE ENGINEERS</span>
+              <h3>哪些东西，你只看见了流量？</h3>
+              <p>代码行数、提交次数、工单关闭数都是流量；真正拖住系统的，往往是它们留下的存量。</p>
+              <div class="engineer-grid">
+                <div><b>技术债</b><span>存量：复杂度与维护成本</span></div>
+                <div><b>未读告警</b><span>存量：噪声与信任损耗</span></div>
+                <div><b>团队认知</b><span>存量：上下文与隐性知识</span></div>
+              </div>
+              <pre class="code-note"><code>// 存量不会被一次冲刺清除
+next = stock + (inflow − outflow) * dt
+// 想改变行为，先看净流量，而不是今天的数字</code></pre>
+            </div>
+          </div>
+
+          <div class="takeaways reveal">
+            <div class="takeaways-head"><span class="kicker">TAKEAWAYS</span><h2>本章速记</h2></div>
+            <ul>
+              <li><b>存量是积累量，流量是速率。</b><span>存量不能瞬间改变，所以系统有惯性和延迟。</span></li>
+              <li><b>净流量决定存量方向。</b><span>流入与流出可以彼此独立，短期的失衡很正常。</span></li>
+              <li><b>存量是缓冲，也是成本。</b><span>库存、冗余和现金能吸收冲击，但维持它们本身需要代价。</span></li>
+              <li><b>只盯流量，会误判系统。</b><span>少开几个工单不等于问题消失，未解决的存量还在。</span></li>
+            </ul>
+          </div>
+
+          <section class="chapter-quiz reveal" data-quiz="ch02" aria-label="第 02 章自测"></section>
+
+          <div class="chapter-end reveal">
+            <button class="complete-btn" data-complete="ch02"><span class="complete-icon"><svg class="icon"><use href="#i-check"></use></svg></span><span class="complete-copy"><b>标记本章完成</b><small>点亮你的学习轨迹</small></span></button>
+            <button class="next-card" data-go="ch03">
+              <span class="next-label">下一章 <small>03</small></span>
+              <strong>反馈回路</strong>
+              <span class="next-desc">系统如何自己纠正，又如何自己放大？</span>
+              <svg class="icon"><use href="#i-arrow"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 03 · 反馈回路                                                  -->
+        <!-- ============================================================ -->
+        <section class="chapter" id="ch03" data-title="反馈回路" data-index="03" data-source="原书第 1—2 章 · 反馈">
+          <div class="chapter-head reveal">
+            <div class="chapter-kicker"><span class="chapter-num">03</span><span>行为的引擎</span><span class="chapter-source">原书第 1—2 章</span></div>
+            <h1>反馈，让系统<br><em>自己动起来</em>。</h1>
+            <p class="lede">当一个存量的变化，经过信息回到它自己的流入或流出，闭环出现了。调节回路把系统拉回目标，增强回路把偏差越推越远；而延迟，会让两者都变得难以预料。</p>
+            <div class="head-tags"><span>调节回路 B</span><span>增强回路 R</span><span>因果链</span><span>时间延迟</span></div>
+          </div>
+
+          <div class="feedback-primer reveal">
+            <article class="feedback-card feedback-card--balance">
+              <div class="feedback-badge">B</div>
+              <span class="kicker">BALANCING LOOP</span>
+              <h3>调节回路</h3>
+              <p>朝着目标，抵消偏离。像恒温器、预算控制、SLO 告警。它让系统趋向稳定，但目标定错时，也会忠实地稳定在错误的位置。</p>
+              <div class="loop-pill"><span>偏差</span><i>→</i><span>纠正</span><i>⊣</i><span>偏差</span></div>
+            </article>
+            <article class="feedback-card feedback-card--reinforce">
+              <div class="feedback-badge">R</div>
+              <span class="kicker">REINFORCING LOOP</span>
+              <h3>增强回路</h3>
+              <p>放大已有的方向。像复利、网络效应、技术债、口碑。它可以是良性循环，也可以是死亡螺旋；关键不是“正负”，而是它放大了什么。</p>
+              <div class="loop-pill"><span>增长</span><i>→</i><span>更多增长</span><i>↻</i><span>增长</span></div>
+            </article>
+            <article class="feedback-card feedback-card--delay">
+              <div class="feedback-badge feedback-badge--delay">τ</div>
+              <span class="kicker">TIME DELAY</span>
+              <h3>时间延迟</h3>
+              <p>信息或行动不能立刻生效。延迟让调节回路错过时机，制造超调与振荡；也让增强回路在你看见后果之前，跑得更远。</p>
+              <div class="delay-pill"><span>行动</span><i class="delay-dash">⋯⋯</i><span>结果</span></div>
+            </article>
+          </div>
+
+          <div class="lab reveal" id="thermoLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 04 · 恒温器</span>
+                <h2>目标 22°C，为什么它会来回过冲？</h2>
+              </div>
+              <span class="lab-badge">实时模拟</span>
+            </div>
+            <div class="thermo-grid">
+              <div class="thermo-panel">
+                <div class="thermo-readout">
+                  <span class="mono">CURRENT TEMP</span>
+                  <div class="temp-big"><strong id="tempNow">16.0</strong><span>°C</span></div>
+                  <div class="thermo-status" id="thermoStatus"><span class="status-dot"></span> 加热中</div>
+                </div>
+                <div class="thermo-visual">
+                  <div class="thermometer">
+                    <div class="thermo-target" id="thermoTargetMark" style="--target:44%"><span>目标 22°</span></div>
+                    <div class="thermo-mercury" id="thermoMercury" style="--temp:16%"></div>
+                    <div class="thermo-bulb"></div>
+                  </div>
+                  <div class="thermo-meta">
+                    <div><span>传感器读数</span><strong id="sensorNow">16.0°</strong><small>受延迟影响</small></div>
+                    <div><span>加热器</span><strong id="heaterState">开启</strong><small id="heaterPower">全功率</small></div>
+                    <div><span>室外温度</span><strong>6°</strong><small>持续散热</small></div>
+                  </div>
+                </div>
+                <div class="control-stack">
+                  <label class="control">
+                    <span class="control-label"><b>目标温度</b><output id="targetOut">22°C</output></span>
+                    <input type="range" id="targetTemp" min="16" max="28" value="22" step="0.5">
+                  </label>
+                  <label class="control">
+                    <span class="control-label"><b>传感器延迟</b><output id="delayOut">1.5 s</output></span>
+                    <input type="range" id="sensorDelay" min="0" max="8" value="1.5" step="0.5">
+                  </label>
+                </div>
+                <div class="toggle-row">
+                  <label class="switch-row">
+                    <span><b>反馈开启</b><small>关闭后，加热器将持续全功率</small></span>
+                    <span class="switch"><input type="checkbox" id="feedbackToggle" checked><i class="switch-track"></i></span>
+                  </label>
+                  <button class="mini-btn" id="thermoReset"><svg class="icon"><use href="#i-reset"></use></svg><span>重置</span></button>
+                </div>
+              </div>
+              <div class="thermo-chart-panel">
+                <div class="chart-head">
+                  <div><span class="mono">室温 / 目标 / 传感器</span><strong>反馈回路在行动</strong></div>
+                  <div class="chart-legend"><span><i class="legend-line legend-line--accent"></i>室温</span><span><i class="legend-line legend-line--gold"></i>传感器</span><span><i class="legend-line legend-line--dashed"></i>目标</span></div>
+                </div>
+                <div class="chart-frame"><canvas id="tempChart" class="chart-canvas" height="290"></canvas></div>
+                <div class="chart-footnote"><span id="thermoInsight">反馈回路正在缩小温差。</span><span class="mono" id="thermoClock">t = 0.0s</span></div>
+              </div>
+            </div>
+            <div class="loop-diagram-wrap">
+              <div class="loop-label"><span>B</span> 调节回路 · 恒温器</div>
+              <div class="loop-chain">
+                <div class="loop-box"><small>目标</small><strong>22°C</strong></div>
+                <span class="loop-op loop-op--minus">−</span>
+                <div class="loop-box"><small>感知</small><strong>温差</strong></div>
+                <span class="loop-op">+</span>
+                <div class="loop-box"><small>执行</small><strong>加热器</strong></div>
+                <span class="loop-op">+</span>
+                <div class="loop-box"><small>结果</small><strong>室温</strong></div>
+                <div class="loop-return"><span></span><small>传感器延迟 <b id="loopDelayLabel">1.5s</b> · 信息回到比较点</small></div>
+              </div>
+              <p class="loop-caption">把延迟调大，再改变目标温度。观察：反应并没有更准，反而更容易冲过头。</p>
+            </div>
+          </div>
+
+          <div class="section-sub reveal">
+            <span class="kicker">THE OTHER LOOP</span>
+            <h2>增强回路：<em>越有的，越会有。</em></h2>
+            <p>增强回路不区分好坏。它只是把当前方向放大：存款、用户增长、声誉，还是债务、告警噪声、依赖。</p>
+          </div>
+
+          <div class="lab reveal" id="compoundLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 05 · 复利</span>
+                <h2>把时间拉长，感受指数级的形状。</h2>
+              </div>
+              <span class="lab-badge">增强回路</span>
+            </div>
+            <div class="compound-grid">
+              <div class="compound-controls">
+                <div class="compound-stat">
+                  <span>期末余额</span>
+                  <strong id="compoundFuture">761</strong>
+                  <small>元</small>
+                </div>
+                <div class="compound-stat-row">
+                  <div><span>翻倍时间</span><strong id="compoundDouble">10.0</strong><small>年</small></div>
+                  <div><span>总收益</span><strong id="compoundGain">+661%</strong><small>复利贡献</small></div>
+                </div>
+                <label class="control">
+                  <span class="control-label"><b>初始本金</b><output id="principalOut">100 元</output></span>
+                  <input type="range" id="principal" min="50" max="500" value="100" step="50">
+                </label>
+                <label class="control">
+                  <span class="control-label"><b>年化增长率</b><output id="rateOut">7%</output></span>
+                  <input type="range" id="growthRate" min="1" max="15" value="7" step="0.5">
+                </label>
+                <label class="control">
+                  <span class="control-label"><b>时间跨度</b><output id="yearsOut">30 年</output></span>
+                  <input type="range" id="years" min="5" max="40" value="30" step="1">
+                </label>
+                <label class="inline-check"><input type="checkbox" id="showLinear" checked><span>同时显示线性积累</span></label>
+                <div class="formula-inline">翻倍时间 ≈ <b>70 ÷ 增长率</b>；增长率 7% 时，约 10 年翻一倍。</div>
+              </div>
+              <div class="compound-chart">
+                <div class="chart-head">
+                  <div><span class="mono">BALANCE OVER TIME</span><strong>复利的曲线</strong></div>
+                  <div class="chart-legend"><span><i class="legend-line legend-line--accent"></i>复利</span><span><i class="legend-line legend-line--gold"></i>线性</span></div>
+                </div>
+                <div class="chart-frame"><canvas id="compoundChart" class="chart-canvas" height="300"></canvas></div>
+                <div class="chart-footnote"><span>同样的本金，不同的时间结构，结果会拉开数量级。</span></div>
+              </div>
+            </div>
+            <div class="loop-diagram-wrap loop-diagram-wrap--compact">
+              <div class="loop-label loop-label--gold"><span>R</span> 增强回路 · 复利</div>
+              <div class="loop-chain loop-chain--three">
+                <div class="loop-box"><small>本金</small><strong>余额</strong></div>
+                <span class="loop-op">+</span>
+                <div class="loop-box"><small>增长率</small><strong>利息</strong></div>
+                <span class="loop-op">+</span>
+                <div class="loop-box"><small>再投入</small><strong>新本金</strong></div>
+                <div class="loop-return"><span></span><small>收益重新进入本金 · 回路闭合</small></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="engineer-note reveal">
+            <div class="engineer-icon"><svg class="icon"><use href="#i-pulse"></use></svg></div>
+            <div>
+              <span class="kicker">FOR SOFTWARE ENGINEERS</span>
+              <h3>你身边的两类回路</h3>
+              <div class="engineer-grid engineer-grid--two">
+                <div><b>调节回路</b><span>监控 → 告警 → 修复 → 稳定性；代码评审 → 缺陷减少；SLO 预算 → 发布节奏</span></div>
+                <div><b>增强回路</b><span>用户增长 → 更多数据 → 更好产品；故障 → 信任下降 → 更多临时补丁 → 更脆弱</span></div>
+              </div>
+              <p>一个系统里通常同时存在多条回路。哪一条在这段时间占主导，系统就呈现哪种行为。</p>
+            </div>
+          </div>
+
+          <div class="takeaways reveal">
+            <div class="takeaways-head"><span class="kicker">TAKEAWAYS</span><h2>本章速记</h2></div>
+            <ul>
+              <li><b>反馈 = 闭环的因果链。</b><span>存量的变化影响流量，流量又回来改变存量。</span></li>
+              <li><b>调节回路追求目标，增强回路放大方向。</b><span>“正反馈”不等于好事，“负反馈”也不等于坏事。</span></li>
+              <li><b>延迟制造振荡。</b><span>在一个有惯性的系统里，反应太快和太慢都可能出错。</span></li>
+              <li><b>主导回路会切换。</b><span>早期增强回路掌舵，接近极限后调节回路接管。</span></li>
+            </ul>
+          </div>
+
+          <section class="chapter-quiz reveal" data-quiz="ch03" aria-label="第 03 章自测"></section>
+
+          <div class="chapter-end reveal">
+            <button class="complete-btn" data-complete="ch03"><span class="complete-icon"><svg class="icon"><use href="#i-check"></use></svg></span><span class="complete-copy"><b>标记本章完成</b><small>点亮你的学习轨迹</small></span></button>
+            <button class="next-card" data-go="ch04">
+              <span class="next-label">下一章 <small>04</small></span>
+              <strong>系统动物园</strong>
+              <span class="next-desc">认识增长、振荡、S 曲线与崩溃。</span>
+              <svg class="icon"><use href="#i-arrow"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 04 · 系统动物园                                                -->
+        <!-- ============================================================ -->
+        <section class="chapter" id="ch04" data-title="系统动物园" data-index="04" data-source="原书第 2 章 · 单存量与双存量系统">
+          <div class="chapter-head reveal">
+            <div class="chapter-kicker"><span class="chapter-num">04</span><span>行为图鉴</span><span class="chapter-source">原书第 2 章</span></div>
+            <h1>系统的行为，<br>是结构的<em>签名</em>。</h1>
+            <p class="lede">同样的回路，不同的参数与延迟，会写下不同的曲线。学会认出指数增长、S 曲线、振荡和崩溃，你就能从行为反推结构。</p>
+            <div class="head-tags"><span>指数增长</span><span>S 曲线</span><span>振荡</span><span>过度与崩溃</span></div>
+          </div>
+
+          <div class="lab reveal" id="zooLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 06 · 行为模拟器</span>
+                <h2>四种曲线，四种系统性格。</h2>
+              </div>
+              <span class="lab-badge">切换观察</span>
+            </div>
+            <div class="segmented zoo-tabs" role="tablist" aria-label="选择系统行为">
+              <button class="is-active" data-zoo="exp" role="tab" aria-selected="true"><span>01</span> 指数增长</button>
+              <button data-zoo="s" role="tab" aria-selected="false"><span>02</span> S 曲线</button>
+              <button data-zoo="osc" role="tab" aria-selected="false"><span>03</span> 振荡</button>
+              <button data-zoo="collapse" role="tab" aria-selected="false"><span>04</span> 过度与崩溃</button>
+            </div>
+            <div class="zoo-grid">
+              <div class="zoo-chart-panel">
+                <div class="chart-head">
+                  <div><span class="mono" id="zooChartLabel">STOCK OVER TIME</span><strong id="zooChartTitle">指数增长</strong></div>
+                  <div class="chart-legend" id="zooLegend"><span><i class="legend-line legend-line--accent"></i>存量</span></div>
+                </div>
+                <div class="chart-frame chart-frame--tall"><canvas id="zooChart" class="chart-canvas" height="360"></canvas></div>
+                <div class="zoo-axis-note"><span>时间 →</span><span id="zooAxisHint">横轴：时间 / 期</span></div>
+              </div>
+              <div class="zoo-info">
+                <span class="zoo-index" id="zooIndex">01 / 04</span>
+                <h3 id="zooTitle">指数增长</h3>
+                <p id="zooDesc">没有明显上限时，存量按当前比例扩张。增长越快，曲线上扬越陡。</p>
+                <div class="zoo-loop-tag" id="zooLoopTag"><b>R</b> 增强回路主导</div>
+                <div class="zoo-facts" id="zooFacts">
+                  <div><span>回路</span><strong>增长 → 更多增长</strong></div>
+                  <div><span>典型现场</span><strong>病毒传播、复利、技术债</strong></div>
+                  <div><span>工程翻译</span><strong>未加限制的告警噪声</strong></div>
+                </div>
+                <label class="control zoo-control">
+                  <span class="control-label"><b id="zooParamLabel">增长率</b><output id="zooParamOut">8%</output></span>
+                  <input type="range" id="zooParam" min="2" max="18" value="8" step="1">
+                </label>
+                <p class="zoo-insight" id="zooInsight"><svg class="icon"><use href="#i-info"></use></svg><span>指数增长最容易被低估：早期看起来平缓，后期变化快得来不及反应。</span></p>
+              </div>
+            </div>
+            <p class="model-note"><svg class="icon"><use href="#i-info"></use></svg>模拟为教学简化模型，用来看清行为形状，不用于预测真实系统。</p>
+          </div>
+
+          <div class="section-sub reveal">
+            <span class="kicker">READ THE SHAPE</span>
+            <h2>曲线不是结果，<em>是线索</em>。</h2>
+            <p>不要问“这条线像什么”，要问“什么结构会写出这条线”。行为是结构在时间中的显影。</p>
+          </div>
+
+          <div class="zoo-cards reveal">
+            <article class="zoo-card">
+              <div class="zoo-spark"><canvas data-spark="exp" height="80"></canvas></div>
+              <span class="zoo-card-num">01</span>
+              <h3>指数增长</h3>
+              <p>增强回路不受约束。增长速度与当前存量成正比，翻倍时间近似固定。</p>
+              <div class="zoo-signature"><span>加速上扬</span><span>R 主导</span></div>
+            </article>
+            <article class="zoo-card">
+              <div class="zoo-spark"><canvas data-spark="s" height="80"></canvas></div>
+              <span class="zoo-card-num">02</span>
+              <h3>S 曲线</h3>
+              <p>先增强，后调节。接近承载上限时，限制因素接管，增长逐渐放缓。</p>
+              <div class="zoo-signature"><span>先快后慢</span><span>主导切换</span></div>
+            </article>
+            <article class="zoo-card">
+              <div class="zoo-spark"><canvas data-spark="osc" height="80"></canvas></div>
+              <span class="zoo-card-num">03</span>
+              <h3>振荡</h3>
+              <p>调节回路加上时间延迟。系统在目标两侧来回修正，甚至越修越晃。</p>
+              <div class="zoo-signature"><span>来回摆动</span><span>延迟</span></div>
+            </article>
+            <article class="zoo-card">
+              <div class="zoo-spark"><canvas data-spark="collapse" height="80"></canvas></div>
+              <span class="zoo-card-num">04</span>
+              <h3>过度与崩溃</h3>
+              <p>增长冲过承载上限，资源被耗尽，支撑增长的回路反向运转，存量骤降。</p>
+              <div class="zoo-signature"><span>冲高回落</span><span>承载力</span></div>
+            </article>
+          </div>
+
+          <div class="insight-banner reveal">
+            <div class="insight-banner-mark">↗</div>
+            <div>
+              <span class="kicker">THE SHIFT</span>
+              <h3>同一张图里，常常发生“主导回路交接”。</h3>
+              <p>S 曲线不是两种系统，而是同一个系统里，先由增强回路掌舵，随后被调节回路接管。系统的性格会在途中改变。</p>
+            </div>
+            <div class="insight-banner-code">R → B</div>
+          </div>
+
+          <div class="engineer-note reveal">
+            <div class="engineer-icon"><svg class="icon"><use href="#i-grid"></use></svg></div>
+            <div>
+              <span class="kicker">FOR SOFTWARE ENGINEERS</span>
+              <h3>你的系统正在写哪条曲线？</h3>
+              <div class="engineer-grid">
+                <div><b>指数增长</b><span>用户病毒传播、日志量、技术债利息</span></div>
+                <div><b>S 曲线</b><span>市场渗透、团队规模、平台迁移</span></div>
+                <div><b>振荡</b><span>发布节奏、库存、招聘与裁员</span></div>
+                <div><b>崩溃</b><span>容量耗尽、信任透支、核心人依赖</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="takeaways reveal">
+            <div class="takeaways-head"><span class="kicker">TAKEAWAYS</span><h2>本章速记</h2></div>
+            <ul>
+              <li><b>行为模式是结构的指纹。</b><span>先认模式，再找回路，比直接猜原因可靠。</span></li>
+              <li><b>增强回路产生指数变化。</b><span>翻倍时间约等于 70 除以增长率（百分数）。</span></li>
+              <li><b>调节回路 + 延迟产生振荡。</b><span>系统反应越快，不一定越稳。</span></li>
+              <li><b>增长终会遇到限制。</b><span>限制可能是暂时的，也可能是永久的，且会随系统演化和移动。</span></li>
+            </ul>
+          </div>
+
+          <section class="chapter-quiz reveal" data-quiz="ch04" aria-label="第 04 章自测"></section>
+
+          <div class="chapter-end reveal">
+            <button class="complete-btn" data-complete="ch04"><span class="complete-icon"><svg class="icon"><use href="#i-check"></use></svg></span><span class="complete-copy"><b>标记本章完成</b><small>点亮你的学习轨迹</small></span></button>
+            <button class="next-card" data-go="ch05">
+              <span class="next-label">下一章 <small>05</small></span>
+              <strong>系统之美</strong>
+              <span class="next-desc">适应力、自组织与层次性。</span>
+              <svg class="icon"><use href="#i-arrow"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 05 · 系统之美                                                  -->
+        <!-- ============================================================ -->
+        <section class="chapter" id="ch05" data-title="系统之美" data-index="05" data-source="原书第 3 章 · 系统之美">
+          <div class="chapter-head reveal">
+            <div class="chapter-kicker"><span class="chapter-num">05</span><span>系统的三个特征</span><span class="chapter-source">原书第 3 章</span></div>
+            <h1>真正好的系统，<br>不是<em>静止</em>的。</h1>
+            <p class="lede">适应力让它扛住冲击，自组织让它长出新的结构，层次性让它用有限的信息处理复杂的协作。它们共同构成了系统的“美”。</p>
+            <div class="head-tags"><span>适应力 Resilience</span><span>自组织 Self-organization</span><span>层次性 Hierarchy</span></div>
+          </div>
+
+          <div class="beauty-intro reveal">
+            <div class="beauty-quote">
+              <span class="kicker">THE BEAUTY</span>
+              <p>“系统之美，在于它们运作得如此精妙，各种机能和谐运行。”</p>
+            </div>
+            <div class="beauty-list">
+              <div><span>01</span><b>适应力</b><p>在变化中保持存在与运作的能力，而不是纹丝不动。</p></div>
+              <div><span>02</span><b>自组织</b><p>无需中央设计，也能学习、分化、进化出更复杂的结构。</p></div>
+              <div><span>03</span><b>层次性</b><p>用子系统封装复杂度，让整体和局部都能有效运作。</p></div>
+            </div>
+          </div>
+
+          <div class="lab reveal" id="resilienceLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 07 · 韧性压力测试</span>
+                <h2>效率优化，可能正在偷走适应力。</h2>
+              </div>
+              <span class="lab-badge">可交互</span>
+            </div>
+            <div class="resilience-top">
+              <div class="resilience-score"><span>系统适应力</span><strong id="resScore">86</strong><small>%</small></div>
+              <div class="resilience-status" id="resStatus"><span class="status-dot"></span><span class="status-copy">网络健康，存在备用路径</span></div>
+              <label class="switch-row switch-row--inline">
+                <span><b>保留冗余连接</b><small>关闭它，模拟“极致效率”</small></span>
+                <span class="switch"><input type="checkbox" id="resRedundancy" checked><i class="switch-track"></i></span>
+              </label>
+            </div>
+            <div class="resilience-grid">
+              <div class="res-canvas-wrap">
+                <svg class="res-svg" id="resSvg" viewBox="0 0 620 300" aria-label="生态系统网络示意图">
+                  <g class="res-lines">
+                    <path d="M310 150 310 54"/><path d="M310 150 480 86"/><path d="M310 150 500 226"/>
+                    <path d="M310 150 330 264"/><path d="M310 150 130 236"/><path d="M310 150 112 94"/>
+                    <path d="M310 54 480 86"/><path d="M480 86 500 226"/><path d="M500 226 330 264"/>
+                    <path d="M330 264 130 236"/><path d="M130 236 112 94"/><path d="M112 94 310 54"/>
+                  </g>
+                  <g class="res-lines res-extra">
+                    <path d="M310 54 330 264"/><path d="M480 86 130 236"/><path d="M500 226 112 94"/>
+                    <path d="M310 54 500 226"/><path d="M480 86 330 264"/>
+                  </g>
+                  <g class="res-node" data-node="soil"><circle cx="310" cy="150" r="29"/><text x="310" y="154">土壤</text></g>
+                  <g class="res-node" data-node="plant"><circle cx="310" cy="54" r="24"/><text x="310" y="58">植物</text></g>
+                  <g class="res-node" data-node="pollinator"><circle cx="480" cy="86" r="24"/><text x="480" y="90">传粉者</text></g>
+                  <g class="res-node" data-node="water"><circle cx="500" cy="226" r="24"/><text x="500" y="230">水源</text></g>
+                  <g class="res-node" data-node="microbe"><circle cx="330" cy="264" r="24"/><text x="330" y="268">微生物</text></g>
+                  <g class="res-node" data-node="seed"><circle cx="130" cy="236" r="24"/><text x="130" y="240">种子库</text></g>
+                  <g class="res-node" data-node="people"><circle cx="112" cy="94" r="24"/><text x="112" y="98">人类</text></g>
+                </svg>
+                <div class="res-legend"><span><i class="res-line"></i>基础连接</span><span><i class="res-line res-line--extra"></i>备用路径</span><span><i class="res-line res-line--hit"></i>受扰节点</span></div>
+              </div>
+              <div class="res-side">
+                <p class="microcopy">真实生态系统并不追求“零冗余”。多条并行回路、多个物种和多种策略，让系统在局部失效时仍能继续运转。</p>
+                <div class="res-actions">
+                  <button class="btn btn-primary btn-small" id="resShock"><svg class="icon"><use href="#i-pulse"></use></svg>施加扰动</button>
+                  <button class="btn btn-outline btn-small" id="resReset">恢复网络</button>
+                </div>
+                <div class="res-log" id="resLog">
+                  <span class="mono">EVENT LOG</span>
+                  <p>等待第一次扰动。试试连续点击，观察系统如何接住冲击。</p>
+                </div>
+                <div class="res-insight"><b>适应力 ≠ 稳定</b><p>稳定是“别动”；适应力是“动了以后还能回来”。为了效率牺牲冗余，系统的生产率可能上升，但面对意外会更脆弱。</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lab reveal" id="selfOrgLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 08 · 自组织</span>
+                <h2>没有总设计师，结构也能自己长出来。</h2>
+              </div>
+              <span class="lab-badge">细胞自动机</span>
+            </div>
+            <div class="life-grid">
+              <div class="life-canvas-wrap">
+                <canvas id="lifeCanvas" width="760" height="260" aria-label="自组织细胞自动机"></canvas>
+                <div class="life-axis"><span>局部规则</span><span>持续演化 →</span><span>新结构</span></div>
+              </div>
+              <div class="life-panel">
+                <h3>自组织：系统的“变异与选择”</h3>
+                <p>每个格子只看邻居，却能在无数轮之后形成滑翔机、振荡器和稳定块。没有中央控制器在指挥，结构从局部互动中涌现。</p>
+                <div class="life-actions">
+                  <button class="btn btn-primary btn-small" id="lifeMutate"><svg class="icon"><use href="#i-spark"></use></svg>引入变异</button>
+                  <button class="btn btn-outline btn-small" id="lifePause"><svg class="icon"><use href="#i-pause"></use></svg>暂停</button>
+                  <button class="btn btn-outline btn-small" id="lifeReset"><svg class="icon"><use href="#i-reset"></use></svg>重置</button>
+                </div>
+                <div class="life-tip"><svg class="icon"><use href="#i-info"></use></svg><span>你也可以直接点击画布，播下一颗新的“种子”。</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lab reveal" id="hierarchyLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 09 · 层次性</span>
+                <h2>把复杂度装进合适的盒子里。</h2>
+              </div>
+              <span class="lab-badge">点击层级</span>
+            </div>
+            <div class="hierarchy-grid">
+              <div class="hier-stack" id="hierStack">
+                <button class="hier-level is-active" data-hier="0"><span>L0</span><b>产品系统</b><small>目标：为用户持续创造价值</small><i>目的层</i></button>
+                <button class="hier-level" data-hier="1"><span>L1</span><b>团队</b><small>目标：稳定交付与学习</small><i>协作层</i></button>
+                <button class="hier-level" data-hier="2"><span>L2</span><b>服务</b><small>目标：可靠地完成职责</small><i>契约层</i></button>
+                <button class="hier-level" data-hier="3"><span>L3</span><b>模块 / 函数</b><small>目标：正确地完成一件事</small><i>实现层</i></button>
+              </div>
+              <div class="hier-detail" id="hierDetail">
+                <span class="hier-detail-index">L0 · 目的层</span>
+                <h3>产品系统</h3>
+                <p>整体层面的目标和边界。它决定什么算“有价值”，也决定其他层级为什么存在。</p>
+                <div class="hier-rule"><b>健康信号</b><span>各层目标一致，信息向上流动，局部优化不会伤害整体。</span></div>
+                <div class="hier-rule"><b>常见病</b><span>次优化：子系统赢了，整体输了；或者中央控制过强，局部失去适应力。</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="engineer-note reveal">
+            <div class="engineer-icon"><svg class="icon"><use href="#i-grid"></use></svg></div>
+            <div>
+              <span class="kicker">FOR SOFTWARE ENGINEERS</span>
+              <h3>把“美”变成设计约束</h3>
+              <div class="engineer-grid">
+                <div><b>适应力</b><span>冗余、降级、混沌工程、可回滚——不是浪费，是保险费。</span></div>
+                <div><b>自组织</b><span>自治团队、插件机制、开源生态——允许局部试错，保护变异。</span></div>
+                <div><b>层次性</b><span>清晰的接口和边界；模块化让复杂度可以被封装，但也可能变成孤岛。</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="takeaways reveal">
+            <div class="takeaways-head"><span class="kicker">TAKEAWAYS</span><h2>本章速记</h2></div>
+            <ul>
+              <li><b>适应力来自多样反馈和冗余。</b><span>过度追求效率，会让系统在冲击面前失去缓冲。</span></li>
+              <li><b>自组织需要变异与容错。</b><span>不允许试错的组织，很难长出新能力。</span></li>
+              <li><b>层次性降低信息负担。</b><span>好的层级既封装复杂度，又保留跨层反馈。</span></li>
+              <li><b>警惕次优化和过度控制。</b><span>子系统目标压过整体目标，或中央管得太细，都会伤害系统。</span></li>
+            </ul>
+          </div>
+
+          <section class="chapter-quiz reveal" data-quiz="ch05" aria-label="第 05 章自测"></section>
+
+          <div class="chapter-end reveal">
+            <button class="complete-btn" data-complete="ch05"><span class="complete-icon"><svg class="icon"><use href="#i-check"></use></svg></span><span class="complete-copy"><b>标记本章完成</b><small>点亮你的学习轨迹</small></span></button>
+            <button class="next-card" data-go="ch06">
+              <span class="next-label">下一章 <small>06</small></span>
+              <strong>系统之奇</strong>
+              <span class="next-desc">为什么系统总让我们意外？</span>
+              <svg class="icon"><use href="#i-arrow"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 06 · 系统之奇                                                  -->
+        <!-- ============================================================ -->
+        <section class="chapter" id="ch06" data-title="系统之奇" data-index="06" data-source="原书第 4 章 · 系统之奇">
+          <div class="chapter-head reveal">
+            <div class="chapter-kicker"><span class="chapter-num">06</span><span>六个意外</span><span class="chapter-source">原书第 4 章</span></div>
+            <h1>为什么系统<br>总让我们<em>意外</em>？</h1>
+            <p class="lede">我们看到的是事件，系统运行在结构里；我们用线性直觉，世界却是非线性的；我们画下边界，边界外的反馈却会回来。理解这些障碍，才有资格谈干预。</p>
+            <div class="head-tags"><span>表象</span><span>非线性</span><span>边界</span><span>限制</span><span>延迟</span><span>有限理性</span></div>
+          </div>
+
+          <div class="lab reveal" id="icebergLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 10 · 冰山模型</span>
+                <h2>事件只是露出水面的一角。</h2>
+              </div>
+              <span class="lab-badge">点击层级</span>
+            </div>
+            <div class="iceberg-grid">
+              <div class="iceberg-visual">
+                <div class="waterline"><span>水面</span></div>
+                <button class="ice-layer ice-layer--event" data-ice="event"><span>事件</span><small>刚刚发生了什么</small></button>
+                <button class="ice-layer ice-layer--pattern" data-ice="pattern"><span>模式</span><small>一段时间里重复什么</small></button>
+                <button class="ice-layer ice-layer--structure" data-ice="structure"><span>结构</span><small>什么在产生这个模式</small></button>
+                <button class="ice-layer ice-layer--mental" data-ice="mental"><span>心智模型</span><small>我们相信什么，因而如何设计</small></button>
+              </div>
+              <div class="ice-detail">
+                <span class="ice-index" id="iceIndex">01 / 04 · 事件</span>
+                <h3 id="iceTitle">事件层：看见浪花</h3>
+                <p id="iceDesc">线上又发生了一次故障。事件层最显眼，也最容易引发情绪和追责。</p>
+                <div class="ice-example" id="iceExample"><b>工程师视角</b><span>“为什么又挂了？”——这句话通常只能得到一个人名，得不到一个结构。</span></div>
+                <div class="ice-depth" id="iceDepth">
+                  <span>更浅</span><i></i><span>更深</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="barrier-strip reveal">
+            <div class="barrier-pill"><span>01</span><b>别被表象迷惑</b></div>
+            <div class="barrier-pill"><span>02</span><b>非线性世界</b></div>
+            <div class="barrier-pill"><span>03</span><b>边界是人画的</b></div>
+            <div class="barrier-pill"><span>04</span><b>限制因素会移动</b></div>
+            <div class="barrier-pill"><span>05</span><b>延迟无处不在</b></div>
+            <div class="barrier-pill"><span>06</span><b>有限理性</b></div>
+          </div>
+
+          <div class="lab-pair reveal">
+            <div class="lab lab--flush" id="nonlinearLab">
+              <div class="lab-head">
+                <div>
+                  <span class="lab-kicker">LAB 11 · 非线性</span>
+                  <h2>多投入一点，结果不一定多一点。</h2>
+                </div>
+                <span class="lab-badge">拖动观察</span>
+              </div>
+              <div class="nonlinear-grid">
+                <div class="chart-frame"><canvas id="nonlinearChart" class="chart-canvas" height="250"></canvas></div>
+                <div class="nonlinear-controls">
+                  <div class="nonlinear-readout"><span>投入</span><strong id="nlInput">50</strong><span>结果</span><strong id="nlOutput">36</strong></div>
+                  <label class="control">
+                    <span class="control-label"><b>把投入从 0 推到 100</b></span>
+                    <input type="range" id="nonlinearRange" min="0" max="100" value="50" step="1">
+                  </label>
+                  <label class="inline-check"><input type="checkbox" id="nonlinearLinear" checked><span>显示“线性直觉”虚线</span></label>
+                  <p class="microcopy">注意：曲线在中间有一个陡峭的拐点。同样的投入增量，在不同位置会产生完全不同的回报。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lab lab--flush" id="delayLab">
+              <div class="lab-head">
+                <div>
+                  <span class="lab-kicker">LAB 12 · 延迟估算</span>
+                  <h2>把估计时间，乘以三。</h2>
+                </div>
+                <span class="lab-badge">经验法则</span>
+              </div>
+              <div class="delay-calc">
+                <label class="control">
+                  <span class="control-label"><b>团队估计的延迟</b><output id="delayEstimateOut">3 天</output></span>
+                  <input type="range" id="delayEstimate" min="1" max="30" value="3" step="1">
+                </label>
+                <div class="delay-visual">
+                  <div class="delay-bar delay-bar--one"><span id="delayOne">3 天</span></div>
+                  <div class="delay-bar delay-bar--three"><span id="delayThree">9 天</span><small>× 3</small></div>
+                </div>
+                <p>Meadows 的建议：先问系统里的每个人，他们认为延迟有多长；做最精准的预测，然后<strong>再扩大三倍</strong>。</p>
+                <div class="delay-examples"><span>需求评审到上线</span><span>告警到修复</span><span>招聘到产出</span><span>培训到行为改变</span></div>
+                <div class="delay-sources">
+                  <div><span>01</span><b>信息延迟</b><p>问题发生，到你终于看见它。</p></div>
+                  <div><span>02</span><b>响应延迟</b><p>看见之后，到行动真正发生。</p></div>
+                  <div><span>03</span><b>效果延迟</b><p>行动之后，到结果显现出来。</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lab reveal" id="boundedLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 13 · 有限理性</span>
+                <h2>每个人都在做合理的事，整体却变得更糟。</h2>
+              </div>
+              <div class="segmented segmented--small" id="boundedToggle" role="tablist" aria-label="切换观察视角">
+                <button class="is-active" role="tab" data-bounded="local" aria-selected="true">局部视角</button>
+                <button role="tab" data-bounded="global" aria-selected="false">系统视角</button>
+              </div>
+            </div>
+            <div class="bounded-grid">
+              <div class="br-stage" id="brStage" data-view="local">
+                <div class="br-node br-node--one"><small>我</small><strong>订单延迟</strong></div>
+                <div class="br-link">催单 <i>→</i></div>
+                <div class="br-node br-node--two"><small>供应商</small><strong>给我的订单加急</strong></div>
+                <div class="br-node br-node--ghost global-only"><small>其他客户</small><strong>也在同时催单</strong></div>
+                <div class="br-link br-link--ghost global-only">产能被挤满 <i>→</i></div>
+                <div class="br-node br-node--danger global-only"><small>整体</small><strong>所有人的订单更慢</strong></div>
+                <div class="br-return global-only">更多催单 ↺ 更多拥堵</div>
+              </div>
+              <div class="bounded-copy" id="boundedCopy">
+                <span class="kicker">LOCAL RATIONALITY</span>
+                <h3>“从我的位置看，这是最合理的选择。”</h3>
+                <p>我只知道自己的订单延迟了。催单能让我获得更多关注，所以我催。每个客户都掌握有限的信息，也都做了理性选择。</p>
+                <p class="aside-note">有限理性不是愚蠢。它是个体在局部信息下做出的合理反应，累加起来却产生集体不想看到的结果。</p>
+              </div>
+            </div>
+            <div class="bounded-lesson"><svg class="icon"><use href="#i-info"></use></svg><span>解法通常不在“让大家更聪明”，而在重构信息流、目标或激励，让局部理性与整体利益对齐。</span></div>
+          </div>
+
+          <div class="barrier-cards reveal">
+            <article class="barrier-card">
+              <span class="barrier-num">03</span>
+              <h3>边界，是你为了方便而画的</h3>
+              <p>系统没有天然边界。边界外的成本、信任、生态和反馈仍然存在，只是暂时没有进入你的模型。</p>
+              <div class="barrier-tag">边界是选择，不是事实</div>
+            </article>
+            <article class="barrier-card">
+              <span class="barrier-num">04</span>
+              <h3>限制因素，也会换人</h3>
+              <p>系统增长时，瓶颈会从一种约束转移到另一种。解决了一个限制，可能立刻撞上新的限制。</p>
+              <div class="barrier-tag">寻找“当前主导限制”</div>
+            </article>
+            <article class="barrier-card">
+              <span class="barrier-num">05</span>
+              <h3>延迟，让因果看起来错位</h3>
+              <p>今天的行动，结果在明天出现；今天的后果，可能来自很久以前。延迟让反馈难以学习。</p>
+              <div class="barrier-tag">拉长时间窗口</div>
+            </article>
+          </div>
+
+          <div class="engineer-note reveal">
+            <div class="engineer-icon"><svg class="icon"><use href="#i-pulse"></use></svg></div>
+            <div>
+              <span class="kicker">FOR SOFTWARE ENGINEERS</span>
+              <h3>模型不是现实，但没有模型更危险</h3>
+              <p>架构图、容量模型、事故复盘都是模型。它们一定不完整，却能帮我们显式地表达假设，然后拿现实去校准。</p>
+              <div class="engineer-grid engineer-grid--two">
+                <div><b>线性陷阱</b><span>“加两个人就能快一倍”——忽略了沟通成本和延迟。</span></div>
+                <div><b>局部陷阱</b><span>“我的服务延迟达标了”——但用户旅程仍然很慢。</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="takeaways reveal">
+            <div class="takeaways-head"><span class="kicker">TAKEAWAYS</span><h2>本章速记</h2></div>
+            <ul>
+              <li><b>不要停留在事件层。</b><span>去寻找模式、结构和心智模型，那里才有可改变的空间。</span></li>
+              <li><b>用非线性思维看投入与回报。</b><span>同样的努力，在不同区间会有不同结果，甚至跨过阈值才有效。</span></li>
+              <li><b>边界、限制和延迟都在变化。</b><span>模型必须持续校准，不能把一次结论当成永久真理。</span></li>
+              <li><b>有限理性是结构问题。</b><span>让局部看到全局、让决策者承担后果，比指责个体更有效。</span></li>
+            </ul>
+          </div>
+
+          <section class="chapter-quiz reveal" data-quiz="ch06" aria-label="第 06 章自测"></section>
+
+          <div class="chapter-end reveal">
+            <button class="complete-btn" data-complete="ch06"><span class="complete-icon"><svg class="icon"><use href="#i-check"></use></svg></span><span class="complete-copy"><b>标记本章完成</b><small>点亮你的学习轨迹</small></span></button>
+            <button class="next-card" data-go="ch07">
+              <span class="next-label">下一章 <small>07</small></span>
+              <strong>系统陷阱</strong>
+              <span class="next-desc">八个反复出现的困局，以及破局线索。</span>
+              <svg class="icon"><use href="#i-arrow"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 07 · 系统陷阱                                                  -->
+        <!-- ============================================================ -->
+        <section class="chapter" id="ch07" data-title="系统陷阱" data-index="07" data-source="原书第 5 章 · 系统陷阱与机会">
+          <div class="chapter-head reveal">
+            <div class="chapter-kicker"><span class="chapter-num">07</span><span>系统诊所</span><span class="chapter-source">原书第 5 章</span></div>
+            <h1>不是人不行，<br>是结构在<em>下套</em>。</h1>
+            <p class="lede">八个经典陷阱，每一个都让“局部合理”的选择叠加成集体困境。认出结构，比寻找坏人更重要；改变结构，比反复救人更有效。</p>
+            <div class="head-tags"><span>政策阻力</span><span>公地悲剧</span><span>目标侵蚀</span><span>竞争升级</span><span>富者愈富</span><span>转嫁负担</span><span>规避规则</span><span>目标错位</span></div>
+          </div>
+
+          <div class="lab reveal" id="trapLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 14 · 系统诊所</span>
+                <h2>八个病例，你能认出几个结构？</h2>
+              </div>
+              <span class="lab-badge">诊断挑战</span>
+            </div>
+            <div class="trap-game">
+              <div class="trap-game-top">
+                <span class="mono" id="trapCaseNo">CASE 01 / 08</span>
+                <span class="trap-score">得分 <b id="trapScore">0</b></span>
+              </div>
+              <div class="trap-progress"><span id="trapProgressBar"></span></div>
+              <span class="kicker" id="trapCaseTag">TECH TEAM · 线上故障</span>
+              <h3 id="trapCaseTitle">每次故障都靠同一个英雄救火</h3>
+              <p class="trap-case-text" id="trapCaseText">团队里最资深的工程师总能在深夜修复故障。大家越来越依赖他，监控、演练和根因修复却一直排不上优先级。</p>
+              <div class="trap-options" id="trapOptions"></div>
+              <div class="trap-result" id="trapResult" hidden>
+                <div class="trap-result-head"><span id="trapResultMark">✓</span><b id="trapResultTitle">诊断正确</b></div>
+                <p id="trapResultText"></p>
+              </div>
+              <div class="trap-game-foot">
+                <span class="microcopy" id="trapHint">选择一个最符合的结构。</span>
+                <button class="btn btn-primary btn-small" id="trapNext" hidden>下一个病例 <svg class="icon"><use href="#i-arrow"></use></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-sub reveal">
+            <span class="kicker">THE EIGHT TRAPS</span>
+            <h2>点击一张卡，拆开它的<em>回路</em>。</h2>
+            <p>每个陷阱都有相似的三段式：一个看似合理的行动、一个短期有效的反馈、一个被推迟或转嫁的长期后果。</p>
+          </div>
+
+          <div class="trap-grid" id="trapGrid"></div>
+
+          <div class="trap-common reveal">
+            <div class="trap-common-head"><span class="kicker">COMMON CURES</span><h2>陷阱的共同解法</h2></div>
+            <div class="trap-common-grid">
+              <div><span>01</span><h3>把目标抬高一层</h3><p>让冲突的子系统服务于一个更大的共同目标，而不是互相拉扯。</p></div>
+              <div><span>02</span><h3>恢复缺失的反馈</h3><p>让行为者看见并承担后果：透明信息、直接责任、资源状态反馈。</p></div>
+              <div><span>03</span><h3>改变规则，而非更用力</h3><p>当结构持续产生坏行为，增加努力通常只是给回路加燃料。</p></div>
+            </div>
+          </div>
+
+          <div class="engineer-note reveal">
+            <div class="engineer-icon"><svg class="icon"><use href="#i-grid"></use></svg></div>
+            <div>
+              <span class="kicker">FOR SOFTWARE ENGINEERS</span>
+              <h3>团队里的八个熟悉现场</h3>
+              <div class="engineer-grid engineer-grid--two">
+                <div><b>转嫁负担</b><span>救火英雄越强，系统性修复越弱。</span></div>
+                <div><b>公地悲剧</b><span>共享测试环境、发布窗口、值班注意力。</span></div>
+                <div><b>目标侵蚀</b><span>连续几个迭代延期后，“大概准时”变成新标准。</span></div>
+                <div><b>目标错位</b><span>用代码行数、故事点或点击率替代真实价值。</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="takeaways reveal">
+            <div class="takeaways-head"><span class="kicker">TAKEAWAYS</span><h2>本章速记</h2></div>
+            <ul>
+              <li><b>陷阱不是道德问题，是结构问题。</b><span>系统中的个体往往在做局部合理的事。</span></li>
+              <li><b>短期解药可能制造长期依赖。</b><span>缓解症状会削弱系统自身解决问题的能力。</span></li>
+              <li><b>反馈缺失，是许多陷阱的根源。</b><span>让行为者直接看见并承担后果，往往比劝说更有效。</span></li>
+              <li><b>破局要动结构，不要只动力度。</b><span>调整目标、规则、信息流，才有机会跳出回路。</span></li>
+            </ul>
+          </div>
+
+          <section class="chapter-quiz reveal" data-quiz="ch07" aria-label="第 07 章自测"></section>
+
+          <div class="chapter-end reveal">
+            <button class="complete-btn" data-complete="ch07"><span class="complete-icon"><svg class="icon"><use href="#i-check"></use></svg></span><span class="complete-copy"><b>标记本章完成</b><small>点亮你的学习轨迹</small></span></button>
+            <button class="next-card" data-go="ch08">
+              <span class="next-label">下一章 <small>08</small></span>
+              <strong>十二个杠杆点</strong>
+              <span class="next-desc">在哪里干预，才能让系统真正转向？</span>
+              <svg class="icon"><use href="#i-arrow"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 08 · 十二个杠杆点                                              -->
+        <!-- ============================================================ -->
+        <section class="chapter" id="ch08" data-title="十二个杠杆点" data-index="08" data-source="原书第 6 章 · 系统杠杆点">
+          <div class="chapter-head reveal">
+            <div class="chapter-kicker"><span class="chapter-num">08</span><span>改变系统</span><span class="chapter-source">原书第 6 章</span></div>
+            <h1>小改变，<br>大<em>转向</em>。</h1>
+            <p class="lede">杠杆点是“在系统中施加一个小变化，就能引发显著行为转变”的地方。它们不按努力程度排序，而按系统层级排序——越靠上，越接近系统的目的与范式。</p>
+            <div class="head-tags"><span>12 个层级</span><span>反直觉</span><span>从参数到范式</span><span>干预伦理</span></div>
+          </div>
+
+          <div class="leverage-intro reveal">
+            <div class="leverage-quote">
+              <span class="kicker">MEADOWS' INVITATION</span>
+              <p>“下面这些不是处方，而是一份邀请：邀请你用更广阔的视角，重新思考系统可以在哪里改变。”</p>
+            </div>
+            <div class="leverage-axiom">
+              <div><b>01</b><span>数字最容易被想到，杠杆通常最弱。</span></div>
+              <div><b>02</b><span>信息流、规则、目标，往往比技术结构更有力。</span></div>
+              <div><b>03</b><span>最高杠杆的地方，阻力也往往最大。</span></div>
+            </div>
+          </div>
+
+          <div class="lab reveal" id="leverageLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">LAB 15 · 杠杆点电梯</span>
+                <h2>从第 12 层，爬到第 1 层。</h2>
+              </div>
+              <span class="lab-badge">点击层级</span>
+            </div>
+            <div class="leverage-grid">
+              <div class="leverage-ladder-wrap">
+                <div class="lever-axis"><span>干预难度 / 系统深度 ↑</span><span>从参数到范式</span></div>
+                <div class="leverage-list" id="leverageList"></div>
+              </div>
+              <aside class="leverage-detail" id="leverageDetail" aria-live="polite">
+                <div class="lever-detail-top">
+                  <span class="lever-detail-num" id="leverDetailNum">12</span>
+                  <span class="lever-detail-tier" id="leverDetailTier">参数层</span>
+                </div>
+                <h3 id="leverDetailTitle">数字</h3>
+                <p class="lever-detail-en" id="leverDetailEn">NUMBERS</p>
+                <p class="lever-detail-desc" id="leverDetailDesc">调整税率、补贴、工资、利率、KPI 阈值。它们是系统中最显眼、也最容易改的部分，但通常只能改变行为的量，难以改变行为的方向。</p>
+                <div class="lever-detail-block">
+                  <span>在软件团队里</span>
+                  <p id="leverDetailSoftware">调高告警阈值、增加预算、调整迭代长度。有用，但很少触及问题为什么反复发生。</p>
+                </div>
+                <div class="lever-detail-block lever-detail-block--warn">
+                  <span>小心</span>
+                  <p id="leverDetailWarn">只改数字，容易把结构性矛盾伪装成“参数没调好”。</p>
+                </div>
+                <div class="lever-meter"><span>杠杆强度</span><div><i id="leverMeterFill" style="width:8%"></i></div><small id="leverMeterText">最弱</small></div>
+              </aside>
+            </div>
+            <div class="leverage-note"><svg class="icon"><use href="#i-info"></use></svg><span>顺序不是绝对刻度，而是一张思考清单。真正有效的干预，需要结合具体系统的历史、边界与抗拒。</span></div>
+          </div>
+
+          <div class="section-sub reveal">
+            <span class="kicker">THREE COUNTERINTUITIVE MOVES</span>
+            <h2>杠杆点为什么<em>反直觉</em>？</h2>
+            <p>因为我们习惯在看得见、摸得着、能立刻汇报的地方用力。系统却常常在更深处决定行为。</p>
+          </div>
+
+          <div class="counter-grid reveal">
+            <article class="counter-card">
+              <span class="counter-num">01</span>
+              <h3>我们爱调参数</h3>
+              <p>预算、人力、阈值、目标数字。参数改变常常立刻可见，却容易被系统的其他回路抵消。</p>
+              <span class="counter-tag">低杠杆，高可见度</span>
+            </article>
+            <article class="counter-card">
+              <span class="counter-num">02</span>
+              <h3>信息流被低估</h3>
+              <p>让正确的人在正确的时间看到正确的事实，往往能改变整个系统的行为，成本却可能很低。</p>
+              <span class="counter-tag">谁看见什么，决定谁做什么</span>
+            </article>
+            <article class="counter-card">
+              <span class="counter-num">03</span>
+              <h3>范式最慢，也最深</h3>
+              <p>“增长就是好”“人必须被管理”“效率高于适应力”——这些默认假设，才是规则和目标的上游。</p>
+              <span class="counter-tag">改变“我们相信什么”</span>
+            </article>
+          </div>
+
+          <div class="engineer-note reveal">
+            <div class="engineer-icon"><svg class="icon"><use href="#i-grid"></use></svg></div>
+            <div>
+              <span class="kicker">FOR SOFTWARE ENGINEERS</span>
+              <h3>从一个“团队很慢”的问题出发</h3>
+              <div class="engineer-grid">
+                <div><b>第 12 层</b><span>加人、加班、调 KPI —— 先问：系统会如何抵消它？</span></div>
+                <div><b>第 8—6 层</b><span>让构建时间可见、让值班者看到用户影响、让发布反馈更快。</span></div>
+                <div><b>第 5—3 层</b><span>改变谁能做决定、团队被什么目标奖励、系统为谁优化。</span></div>
+                <div><b>第 2—1 层</b><span>重新审视“交付就是产出”“忙碌就是价值”的默认假设。</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="takeaways reveal">
+            <div class="takeaways-head"><span class="kicker">TAKEAWAYS</span><h2>本章速记</h2></div>
+            <ul>
+              <li><b>杠杆点按系统深度排序。</b><span>参数在最下层，范式与超越范式在最上层。</span></li>
+              <li><b>高杠杆往往不显眼。</b><span>信息流、规则、目标和范式，常被“技术问题”的外壳遮住。</span></li>
+              <li><b>改变越深，阻力越大。</b><span>系统会保护自己的目标与范式，需要耐心、联盟与实验。</span></li>
+              <li><b>不要把杠杆点当按钮。</b><span>它是观察系统的坐标系，而不是一套万能处方。</span></li>
+            </ul>
+          </div>
+
+          <section class="chapter-quiz reveal" data-quiz="ch08" aria-label="第 08 章自测"></section>
+
+          <div class="chapter-end reveal">
+            <button class="complete-btn" data-complete="ch08"><span class="complete-icon"><svg class="icon"><use href="#i-check"></use></svg></span><span class="complete-copy"><b>标记本章完成</b><small>点亮你的学习轨迹</small></span></button>
+            <button class="next-card" data-go="ch09">
+              <span class="next-label">下一章 <small>09</small></span>
+              <strong>与系统共舞</strong>
+              <span class="next-desc">十五条生存法则，和一种更谦逊的姿态。</span>
+              <svg class="icon"><use href="#i-arrow"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 09 · 与系统共舞                                                -->
+        <!-- ============================================================ -->
+        <section class="chapter" id="ch09" data-title="与系统共舞" data-index="09" data-source="原书第 7 章 · 与系统共舞">
+          <div class="chapter-head reveal">
+            <div class="chapter-kicker"><span class="chapter-num">09</span><span>生存法则</span><span class="chapter-source">原书第 7 章</span></div>
+            <h1>你无法控制<br>系统，但可以<em>与它共舞</em>。</h1>
+            <p class="lede">理解系统，不等于拥有系统。真正的系统思考者保持谦逊、保留好奇、扩大时间与关切的边界，并在行动中持续学习。</p>
+            <div class="head-tags"><span>观察</span><span>设计</span><span>姿态</span><span>伦理</span></div>
+          </div>
+
+          <div class="dance-hero reveal">
+            <div class="dance-rings" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
+            <div class="dance-copy">
+              <span class="kicker">DANCE WITH SYSTEMS</span>
+              <h2>系统不是机器，<br>也不是敌人。</h2>
+              <p>它更像一位舞伴：有自己的节奏、惯性和反应。你不能命令它停下，但可以学会听拍子、调整步伐，甚至在踩到脚之后继续跳。</p>
+            </div>
+            <div class="dance-quote">
+              <span>“</span>
+              <p>我们无法控制系统，<br>但可以学会与它共舞。</p>
+              <small>— 对 Meadows 的意译</small>
+            </div>
+          </div>
+
+          <div class="principles-toolbar reveal">
+            <div>
+              <span class="kicker">FIFTEEN PRACTICES</span>
+              <h2>十五个动作，<br>把系统思考带回日常。</h2>
+            </div>
+            <div class="segmented segmented--small" id="principleFilter" role="tablist" aria-label="筛选法则">
+              <button class="is-active" data-filter="all" role="tab" aria-selected="true">全部 15</button>
+              <button data-filter="see" role="tab" aria-selected="false">观察</button>
+              <button data-filter="design" role="tab" aria-selected="false">设计</button>
+              <button data-filter="be" role="tab" aria-selected="false">姿态</button>
+            </div>
+          </div>
+
+          <div class="principles-wrap" id="principlesWrap"></div>
+
+          <div class="section-sub reveal">
+            <span class="kicker">A DAILY PRACTICE</span>
+            <h2>给软件工程师的<em>七个小动作</em>。</h2>
+          </div>
+          <div class="practice-grid reveal">
+            <div><span>01</span><p>事故后先画回路，再写时间线。</p></div>
+            <div><span>02</span><p>看到“慢”，先找延迟，而不是先催人。</p></div>
+            <div><span>03</span><p>问“谁看不到自己行为的后果？”</p></div>
+            <div><span>04</span><p>把局部指标放回用户旅程里检查。</p></div>
+            <div><span>05</span><p>给系统留一点冗余，不要榨干每一分钟。</p></div>
+            <div><span>06</span><p>改变规则前，先观察它奖励了什么行为。</p></div>
+            <div><span>07</span><p>承认模型不完整，把假设写在墙上。</p></div>
+          </div>
+
+          <div class="closing-card reveal">
+            <span class="kicker">REMEMBER</span>
+            <h2>系统思考不是一套控制术，<br>而是一种<em>更清醒的参与</em>。</h2>
+            <p>它让你看见自己的位置、行动的边界，以及那些原本不可见的连接。剩下的，是带着不确定性继续行动。</p>
+            <button class="btn btn-primary" data-go="ch10">去沙盒，画一张你自己的系统图 <svg class="icon"><use href="#i-arrow"></use></svg></button>
+          </div>
+
+          <div class="takeaways reveal">
+            <div class="takeaways-head"><span class="kicker">TAKEAWAYS</span><h2>本章速记</h2></div>
+            <ul>
+              <li><b>观察先于干预。</b><span>跟上系统的节拍，尊重它的历史和现有智慧。</span></li>
+              <li><b>让信息和责任形成闭环。</b><span>让决策者看见后果，让系统具备自我修正能力。</span></li>
+              <li><b>扩大时间、边界与关切的尺度。</b><span>短期局部最优，常常是长期整体灾难。</span></li>
+              <li><b>保持谦逊，持续学习。</b><span>模型永远不完整，系统永远比我们聪明。</span></li>
+            </ul>
+          </div>
+
+          <section class="chapter-quiz reveal" data-quiz="ch09" aria-label="第 09 章自测"></section>
+
+          <div class="chapter-end reveal">
+            <button class="complete-btn" data-complete="ch09"><span class="complete-icon"><svg class="icon"><use href="#i-check"></use></svg></span><span class="complete-copy"><b>标记本章完成</b><small>点亮你的学习轨迹</small></span></button>
+            <button class="next-card" data-go="ch10">
+              <span class="next-label">下一章 <small>10</small></span>
+              <strong>系统沙盒</strong>
+              <span class="next-desc">亲手画回路，让结构显形。</span>
+              <svg class="icon"><use href="#i-arrow"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 10 · 系统沙盒                                                  -->
+        <!-- ============================================================ -->
+        <section class="chapter" id="ch10" data-title="系统沙盒" data-index="10" data-source="实践 · 因果回路图">
+          <div class="chapter-head reveal">
+            <div class="chapter-kicker"><span class="chapter-num">10</span><span>动手建模</span><span class="chapter-source">实践工作台</span></div>
+            <h1>画出来，<br>你才会真正<em>看见</em>。</h1>
+            <p class="lede">把脑子里的因果链变成一张图。拖动变量、连上箭头、标出正负号；系统会自动帮你寻找回路，并判断它是增强还是调节。</p>
+            <div class="head-tags"><span>因果回路图</span><span>正负极性</span><span>回路识别</span><span>本地保存</span></div>
+          </div>
+
+          <div class="sandbox-guide reveal">
+            <div><span>01</span><b>加变量</b><p>从你正在面对的问题里，挑出会相互影响的关键量。</p></div>
+            <div><span>02</span><b>连因果</b><p>从原因指向结果。问：前者增加，后者会随之增加还是减少？</p></div>
+            <div><span>03</span><b>读回路</b><p>回到起点。正号乘积为 R（增强），负号乘积为 B（调节）。</p></div>
+            <div class="sandbox-guide-note"><svg class="icon"><use href="#i-spark"></use></svg><span>模板只是一个起点。真正的价值，是你改动它之后看见的东西。</span></div>
+          </div>
+
+          <div class="sandbox-shell reveal" id="sandboxShell">
+            <div class="sandbox-toolbar">
+              <div class="sandbox-tools">
+                <label class="select-wrap">
+                  <span>模板</span>
+                  <select id="sandboxTemplate">
+                    <option value="debt">技术债螺旋</option>
+                    <option value="commons">公地悲剧</option>
+                    <option value="erosion">目标侵蚀</option>
+                    <option value="blank">空白画布</option>
+                  </select>
+                </label>
+                <button class="tool-btn" id="addNodeBtn" title="添加变量"><svg class="icon"><use href="#i-plus"></use></svg><span>变量</span></button>
+                <button class="tool-btn" id="linkModeBtn" aria-pressed="false" title="连接变量"><svg class="icon"><use href="#i-link"></use></svg><span>连接</span></button>
+                <button class="tool-btn tool-btn--polarity" id="polarityBtn" title="切换因果极性" aria-label="当前连接极性：正">＋</button>
+                <button class="tool-btn" id="renameBtn" title="重命名选中变量"><svg class="icon"><use href="#i-edit"></use></svg><span>改名</span></button>
+                <button class="tool-btn" id="deleteBtn" title="删除选中对象"><svg class="icon"><use href="#i-trash"></use></svg><span>删除</span></button>
+                <button class="tool-btn tool-btn--quiet" id="clearBtn">清空</button>
+              </div>
+              <div class="sandbox-status" id="sandboxStatus"><span class="status-dot"></span>选择模式：拖动变量，或点击“连接”开始画因果。</div>
+            </div>
+            <div class="sandbox-grid">
+              <div class="sandbox-canvas" id="sandboxCanvas">
+                <div class="sandbox-empty" id="sandboxEmpty">
+                  <svg class="icon"><use href="#i-map"></use></svg>
+                  <p>画布是空的。<br>添加一个变量，或载入一个模板。</p>
+                </div>
+                <svg class="sandbox-svg" id="sandboxSvg" viewBox="0 0 900 520" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <marker id="sbArrowPlus" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#1d6f61"/></marker>
+                    <marker id="sbArrowMinus" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#d95d43"/></marker>
+                    <marker id="sbArrowSel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#b27b2a"/></marker>
+                  </defs>
+                  <g id="sandboxEdges"></g>
+                </svg>
+                <div class="sandbox-nodes" id="sandboxNodes"></div>
+                <div class="sandbox-zoom-note">拖动节点调整布局 · 双击重命名</div>
+              </div>
+              <aside class="loop-panel">
+                <div class="loop-panel-head"><div><span class="kicker">LOOP DETECTOR</span><h3>回路探测</h3></div><span class="loop-count" id="loopCount">0</span></div>
+                <p class="loop-panel-sub">闭环的因果链会改变系统行为。正号乘积为 R，负号乘积为 B。</p>
+                <div class="loop-list" id="loopList">
+                  <div class="loop-empty"><span>◎</span><p>还没有发现回路。<br>把箭头连回起点试试。</p></div>
+                </div>
+                <div class="loop-legend">
+                  <span><i class="loop-legend-r">R</i> 增强回路 · 放大变化</span>
+                  <span><i class="loop-legend-b">B</i> 调节回路 · 抵消变化</span>
+                </div>
+                <div class="sandbox-save"><span><i class="status-dot"></i> 自动保存在本机</span><button class="text-btn" id="restoreTemplate">恢复当前模板</button></div>
+              </aside>
+            </div>
+            <div class="sandbox-foot">
+              <div class="sandbox-tip"><svg class="icon"><use href="#i-info"></use></svg><span>提示：正号表示“同向变化”，负号表示“反向变化”。回路里负号个数为偶数就是增强回路，为奇数就是调节回路。</span></div>
+              <span class="mono" id="sandboxStats">6 变量 · 7 条因果链 · 2 个回路</span>
+            </div>
+          </div>
+
+          <div class="engineer-note reveal">
+            <div class="engineer-icon"><svg class="icon"><use href="#i-info"></use></svg></div>
+            <div>
+              <span class="kicker">HOW TO READ A CLD</span>
+              <h3>画因果回路图的三条纪律</h3>
+              <div class="engineer-grid">
+                <div><b>变量，不是事件</b><span>写“技术债”，不要写“周五出事故”。变量可以被增加或减少。</span></div>
+                <div><b>箭头，是因果</b><span>不是相关，也不是顺序。从原因指向结果，并在心里问“为什么”。</span></div>
+                <div><b>回路，才讲故事</b><span>一条线只是因果，闭合的回路才产生自我强化或自我纠正的行为。</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="takeaways reveal">
+            <div class="takeaways-head"><span class="kicker">TAKEAWAYS</span><h2>本章速记</h2></div>
+            <ul>
+              <li><b>建模是为了暴露假设。</b><span>图不追求完整，而追求让你看见之前忽略的连接。</span></li>
+              <li><b>正负号描述方向，不描述好坏。</b><span>增强回路可以带来增长，也可以带来崩溃。</span></li>
+              <li><b>先找回路，再找杠杆。</b><span>知道系统在哪里自我强化、在哪里自我纠正，才知道该往哪里动。</span></li>
+              <li><b>让图保持可修改。</b><span>模型是临时脚手架，不是纪念碑。</span></li>
+            </ul>
+          </div>
+
+          <section class="chapter-quiz reveal" data-quiz="ch10" aria-label="第 10 章自测"></section>
+
+          <div class="chapter-end reveal">
+            <button class="complete-btn" data-complete="ch10"><span class="complete-icon"><svg class="icon"><use href="#i-check"></use></svg></span><span class="complete-copy"><b>标记本章完成</b><small>点亮你的学习轨迹</small></span></button>
+            <button class="next-card" data-go="ch11">
+              <span class="next-label">最后一章 <small>11</small></span>
+              <strong>检验与速查</strong>
+              <span class="next-desc">用十道题，把这本书带走。</span>
+              <svg class="icon"><use href="#i-arrow"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 11 · 检验与速查                                                -->
+        <!-- ============================================================ -->
+        <section class="chapter" id="ch11" data-title="检验与速查" data-index="11" data-source="全书复盘">
+          <div class="chapter-head reveal">
+            <div class="chapter-kicker"><span class="chapter-num">11</span><span>全书复盘</span><span class="chapter-source">检验 · 速查 · 带走</span></div>
+            <h1>现在，<br>把系统<em>带走</em>。</h1>
+            <p class="lede">最后一段路，不是背定义，而是确认你真的能在新的情境里认出结构。做完小测，再带走一张可以贴在桌边的速查卡。</p>
+            <div class="head-tags"><span>学习报告</span><span>十道题</span><span>术语速查</span><span>行动清单</span></div>
+          </div>
+
+          <div class="report-card reveal">
+            <div class="report-ring" id="reportRing" style="--p:0"><span id="reportPct">0</span><small>%</small></div>
+            <div class="report-copy"><span class="kicker">YOUR JOURNEY</span><h2>你已经点亮了 <span id="reportModules">0 / 11</span> 个模块。</h2><p id="reportMessage">从任何一个模块开始都可以。系统思考不要求一条直线，它更像反复回到同一张地图。</p></div>
+            <div class="report-stats">
+              <div><span>最佳小测</span><strong id="reportBest">—</strong></div>
+              <div><span>已画回路</span><strong id="reportLoops">0</strong></div>
+              <div><span>自测已答</span><strong id="reportQuizzes">0 / 33</strong></div>
+            </div>
+          </div>
+
+          <div class="lab reveal" id="quizLab">
+            <div class="lab-head">
+              <div>
+                <span class="lab-kicker">FINAL QUIZ · 十道题</span>
+                <h2>把概念放进新的情境里。</h2>
+              </div>
+              <span class="lab-badge">即时反馈</span>
+            </div>
+            <div class="quiz-shell">
+              <div class="quiz-top">
+                <span class="mono" id="quizStep">QUESTION 01 / 10</span>
+                <div class="quiz-progress"><span id="quizBar"></span></div>
+                <span class="quiz-score"><b id="quizRight">0</b> 正确</span>
+              </div>
+              <div class="quiz-body" id="quizBody">
+                <span class="kicker" id="quizTag">CHAPTER 01</span>
+                <h3 id="quizQuestion">系统三要素中，最不显眼但通常最关键的是哪一项？</h3>
+                <div class="quiz-options" id="quizOptions"></div>
+                <div class="quiz-explain" id="quizExplain" hidden></div>
+              </div>
+              <div class="quiz-result" id="quizResult" hidden>
+                <div class="quiz-result-ring" id="quizResultRing" style="--p:0"><span id="quizResultPct">0</span><small>%</small></div>
+                <span class="kicker">YOUR RESULT</span>
+                <h3 id="quizResultTitle">不错，已经看见结构了。</h3>
+                <p id="quizResultText"></p>
+                <div class="quiz-result-actions">
+                  <button class="btn btn-primary" id="quizRetry">再做一次</button>
+                  <button class="btn btn-outline" data-go="ch08">回到杠杆点</button>
+                </div>
+              </div>
+              <div class="quiz-foot" id="quizFoot">
+                <span class="microcopy" id="quizMicro">选择一个答案，看看结构是否被你看穿。</span>
+                <button class="btn btn-primary btn-small" id="quizNext" disabled>下一题 <svg class="icon"><use href="#i-arrow"></use></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-sub reveal">
+            <span class="kicker">POCKET REFERENCE</span>
+            <h2>把这几个词，<em>带去现场</em>。</h2>
+            <p>不需要记住整本书。先让这些词在下次复盘、评审或争执时，帮你多停半秒。</p>
+          </div>
+
+          <div class="glossary-grid reveal">
+            <article class="glossary-card"><span>01</span><h3>存量</h3><p>可积累的量。系统的记忆、缓冲和惯性来源。</p></article>
+            <article class="glossary-card"><span>02</span><h3>流量</h3><p>改变存量的速率。流入、流出可以彼此独立。</p></article>
+            <article class="glossary-card"><span>03</span><h3>调节回路</h3><p>抵消偏离、趋向目标的反馈。标记为 B。</p></article>
+            <article class="glossary-card"><span>04</span><h3>增强回路</h3><p>放大变化、产生指数行为的反馈。标记为 R。</p></article>
+            <article class="glossary-card"><span>05</span><h3>延迟</h3><p>行动到结果之间的时间差。制造超调、振荡和误判。</p></article>
+            <article class="glossary-card"><span>06</span><h3>适应力</h3><p>在冲击中保持存在并恢复的能力。依赖多样性与冗余。</p></article>
+            <article class="glossary-card"><span>07</span><h3>自组织</h3><p>系统自发产生新结构、新规则和新能力的能力。</p></article>
+            <article class="glossary-card"><span>08</span><h3>有限理性</h3><p>个体基于局部信息做出合理选择，合起来却可能伤害整体。</p></article>
+            <article class="glossary-card"><span>09</span><h3>杠杆点</h3><p>小干预能引发系统显著转向的位置，通常反直觉。</p></article>
+            <article class="glossary-card"><span>10</span><h3>范式</h3><p>一组共享假设，决定了什么目标、规则和结构显得“合理”。</p></article>
+          </div>
+
+          <div class="cheat-strip reveal">
+            <div class="cheat-card">
+              <span class="kicker">A 30-SECOND CHECK</span>
+              <h3>遇到复杂问题时，先问七个问题</h3>
+              <ol>
+                <li>我看到的，是事件、模式，还是结构？</li>
+                <li>这里的存量是什么？谁在改变它？</li>
+                <li>有哪些增强回路和调节回路？</li>
+                <li>延迟有多长？我是不是在等一个还没到的结果？</li>
+                <li>边界画在哪里？谁被留在了外面？</li>
+                <li>系统实际在奖励什么？目标和指标一致吗？</li>
+                <li>如果只能动一个地方，哪里最接近目标、规则或信息流？</li>
+              </ol>
+            </div>
+            <div class="cheat-card cheat-card--accent">
+              <span class="kicker">THE ONE SENTENCE</span>
+              <blockquote>“系统的行为，来自它的结构；<br>要改变行为，就要改变结构——<br>而改变结构，首先要看见结构。”</blockquote>
+              <p>这不是 Meadows 的原句，但它概括了整本书的方向。</p>
+              <button class="btn btn-outline btn-small" id="printBtn"><svg class="icon"><use href="#i-grid"></use></svg>打印 / 存为 PDF</button>
+            </div>
+          </div>
+
+          <section class="chapter-quiz reveal" data-quiz="ch11" aria-label="第 11 章自测"></section>
+
+          <div class="final-note reveal">
+            <span class="kicker">END / BEGIN AGAIN</span>
+            <h2>这不是终点。<br>系统会继续给你新的反馈。</h2>
+            <p>下次遇到反复出现的问题，不要只问“谁做错了”。试着问：<strong>是什么样的结构，让正确的人做出了让我们意外的选择？</strong></p>
+            <div class="final-actions">
+              <button class="btn btn-primary" data-go="ch00">回到起点，再看一遍</button>
+              <button class="btn btn-outline" data-go="ch10">继续画我的系统</button>
+            </div>
+            <p class="final-credit">内容框架致敬 Donella H. Meadows《系统之美》（Thinking in Systems: A Primer）。<br>本页为原创教学演示，示例与交互均为帮助理解而设计。</p>
+            <button class="text-btn danger-text" id="resetProgress">重置本地学习进度</button>
+          </div>
+
+          <div class="chapter-end reveal">
+            <button class="complete-btn" data-complete="ch11"><span class="complete-icon"><svg class="icon"><use href="#i-check"></use></svg></span><span class="complete-copy"><b>标记全书完成</b><small>把这一页留给自己</small></span></button>
+            <button class="next-card" data-go="ch00">
+              <span class="next-label">回到开头 <small>00</small></span>
+              <strong>启程</strong>
+              <span class="next-desc">带着新的眼睛，再看一次世界。</span>
+              <svg class="icon"><use href="#i-arrow"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- CHAPTERS_CONTINUE -->
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Knowledge map -->
+  <div class="modal-layer" id="mapModal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal modal--map" role="dialog" aria-modal="true" aria-labelledby="mapTitle">
+      <div class="modal-head">
+        <div><span class="kicker">THE SYSTEMS MAP</span><h2 id="mapTitle">一张系统地图，<br>一条从看见到行动的路径。</h2></div>
+        <button class="icon-btn" data-close-modal aria-label="关闭知识地图"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="map-legend"><span><i class="map-dot map-dot--active"></i> 当前</span><span><i class="map-dot map-dot--done"></i> 已完成</span><span><i class="map-dot"></i> 待探索</span></div>
+      <div class="map-canvas">
+        <div class="map-act">
+          <span class="map-act-label">序章</span>
+          <button class="map-node" data-go="ch00" data-map-node="ch00"><b>00</b><span>启程</span></button>
+        </div>
+        <div class="map-act map-act--teal">
+          <span class="map-act-label">I · 看见结构</span>
+          <div class="map-nodes">
+            <button class="map-node" data-go="ch01" data-map-node="ch01"><b>01</b><span>系统解剖</span></button>
+            <button class="map-node" data-go="ch02" data-map-node="ch02"><b>02</b><span>存量与流量</span></button>
+            <button class="map-node" data-go="ch03" data-map-node="ch03"><b>03</b><span>反馈回路</span></button>
+          </div>
+        </div>
+        <div class="map-act map-act--gold">
+          <span class="map-act-label">II · 理解行为</span>
+          <div class="map-nodes">
+            <button class="map-node" data-go="ch04" data-map-node="ch04"><b>04</b><span>系统动物园</span></button>
+            <button class="map-node" data-go="ch05" data-map-node="ch05"><b>05</b><span>系统之美</span></button>
+            <button class="map-node" data-go="ch06" data-map-node="ch06"><b>06</b><span>系统之奇</span></button>
+          </div>
+        </div>
+        <div class="map-act map-act--coral">
+          <span class="map-act-label">III · 识别陷阱</span>
+          <div class="map-nodes">
+            <button class="map-node" data-go="ch07" data-map-node="ch07"><b>07</b><span>八个陷阱</span></button>
+          </div>
+        </div>
+        <div class="map-act map-act--blue">
+          <span class="map-act-label">IV · 改变系统</span>
+          <div class="map-nodes">
+            <button class="map-node" data-go="ch08" data-map-node="ch08"><b>08</b><span>十二杠杆点</span></button>
+            <button class="map-node" data-go="ch09" data-map-node="ch09"><b>09</b><span>与系统共舞</span></button>
+            <button class="map-node" data-go="ch10" data-map-node="ch10"><b>10</b><span>系统沙盒</span></button>
+          </div>
+        </div>
+        <div class="map-act">
+          <span class="map-act-label">尾声</span>
+          <button class="map-node" data-go="ch11" data-map-node="ch11"><b>11</b><span>检验与速查</span></button>
+        </div>
+      </div>
+      <p class="map-footnote">系统思考不是一条直线。随时回到任何一站，带着新的问题重新看一遍。</p>
+    </div>
+  </div>
+
+  <!-- Trap detail modal -->
+  <div class="modal-layer" id="trapModal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal modal--trap" role="dialog" aria-modal="true" aria-labelledby="trapModalTitle">
+      <div class="modal-head">
+        <div class="trap-modal-title-wrap">
+          <span class="trap-modal-icon" id="trapModalIcon"></span>
+          <div><span class="kicker" id="trapModalEn">SYSTEM TRAP</span><h2 id="trapModalTitle">陷阱</h2></div>
+        </div>
+        <button class="icon-btn" data-close-modal aria-label="关闭"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="trap-modal-body" id="trapModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Node rename / add modal -->
+  <div class="modal-layer" id="nodeModal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal modal--small" role="dialog" aria-modal="true" aria-labelledby="nodeModalTitle">
+      <div class="modal-head">
+        <div><span class="kicker">SANDBOX</span><h2 id="nodeModalTitle">添加一个变量</h2></div>
+        <button class="icon-btn" data-close-modal aria-label="关闭"><svg class="icon"><use href="#i-close"></use></svg></button>
+      </div>
+      <form id="nodeForm">
+        <label class="field-label" for="nodeName">变量名称</label>
+        <input class="text-input" id="nodeName" maxlength="18" autocomplete="off" placeholder="例如：交付压力" required>
+        <p class="field-hint">用名词或名词短语。比如“技术债”“用户信任”“交付速度”。</p>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" data-close-modal>取消</button>
+          <button type="submit" class="btn btn-primary">加入画布</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <canvas class="confetti-canvas" id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
